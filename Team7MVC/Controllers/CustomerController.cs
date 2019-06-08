@@ -36,7 +36,7 @@ namespace Team7MVC.Controllers
             Customers customers = new Customers()
             {
                 CustomerName = CustomerName,
-                Account = Account,
+                Account = User.Identity.Name,
                 Gender = Gender,
                 Birthday = Birthday,
                 Email = Email,
