@@ -6,7 +6,9 @@
             <i class="fas fa-bars"></i>
         </button>
         <a class="navbar-brand m-0 px-3" href="@Url.Action("Index","Wine")" id="logo">
-            <img src="~/Assets/img_Index/logo_light.png" alt="logo">
+            @*<img src="~/Assets/img_Index/logo_light.png" alt="logo">*@
+            <span id="logo_text">The</span>
+            <span>JIU GUI</span>
         </a>
 
         <div class="collapse navbar-collapse px-3" id="navbarSupportedContent">
@@ -56,8 +58,7 @@
                             }
                             else
                             {
-                                @*<a class="dropdown-item" href="@Url.Action("SignOut","Wine")">@User.Identity.Name 登出</a>*@
-                                @Html.ActionLink(User.Identity.Name, "CustomerEdit", "Customer", new { id = User.Identity.Name }, new { @class = "dropdown-item" })
+                                @*@Html.ActionLink(User.Identity.Name, "CustomerEdit", "Customer", new { id = User.Identity.Name }, new { @class = "dropdown-item" })*@
                                 @Html.ActionLink("My Account", "CustomerEdit", "Customer", new { id = User.Identity.Name }, new { @class = "dropdown-item" })
                                 @Html.ActionLink("Sign out", "SignOut", "Wine", null, new { @class = "dropdown-item" })}
                         }
