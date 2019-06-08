@@ -92,6 +92,15 @@ a {
     background-color: rgba(255,255,255,.1);
 }
 
+#logo {
+    font-size:36px;
+    font-family:'Times New Roman';
+}
+
+#logo_text {
+    font-family: 'Edwardian Script ITC';
+}
+
 /* carouselFade */
 .carousel-item img {
     width: 100vw;

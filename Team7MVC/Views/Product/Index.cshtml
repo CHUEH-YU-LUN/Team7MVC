@@ -170,8 +170,14 @@
                         <h3>
                             Sherry Oak 系列 @ViewData[item.CategoryID.ToString()]
                         </h3>
-                        <p>@Html.DisplayFor(modelItem => item.ProductName)</p>
-                        <p>Explore</p>
+
+                        <a href="@Url.Action("ProductDetail","Product" , new { id = item.ProductID })" class="text-dark">
+                            <p>@Html.DisplayFor(modelItem => item.ProductName)</p>
+                        </a>
+
+                        <a href="@Url.Action("ProductDetail","Product" , new { id = item.ProductID })" class="text-dark">
+                            <p>Explore</p>
+                        </a>
                     </div>
                 </div>
             }
