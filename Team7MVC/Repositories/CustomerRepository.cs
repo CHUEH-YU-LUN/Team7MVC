@@ -43,7 +43,7 @@ namespace Team7MVC.Repositories
                 int CustomerID = 0;
 
                 string sql = @"select CustomerID from Customers
-                                where Account = 'Account14'";
+                                where Account = @Account";
 
                 CustomerID = conn.QueryFirstOrDefault<int>(sql, new { customers.Account });
 
