@@ -14,10 +14,12 @@ namespace Team7MVC.Models
         public string Account { get; set; }
         [Display(Name = "密碼")]
         public string Password { get; set; }
-        //[Display(Name = "新密碼")]
-        //public string NewPassword { get; set; }
-        //[Display(Name = "確認新密碼")]
-        //public string ConfirmPassword { get; set; }
+        [Display(Name = "新密碼")]
+        public string NewPassword { get; set; }
+        [DataType(DataType.Password)]
+        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "密碼和確認密碼不相符")]
+        [Display(Name = "確認新密碼")]
+        public string ConfirmPassword { get; set; }
         [Display(Name = "名字")]
         public string CustomerName { get; set; }
         [Display(Name = "性別")]

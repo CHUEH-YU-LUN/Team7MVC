@@ -11,6 +11,7 @@ namespace Team7MVC.Controllers
     public class CustomerController : Controller
     {
         public readonly CustomerRepository _repo;
+       
 
         public CustomerController()
         {
@@ -57,15 +58,17 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangePassword(string password, string NewPassword)
+        public ActionResult ChangePassword(Customers customers)
         {
-            Customers customers = new Customers()
+            if (!ModelState.IsValid || customers.Password != customers.Password)
             {
-                //NewPassword = NewPassword,
-                Password = password
-            };
+                return RedirectToAction("ChangePassword");
 
-            _repo.UpdatePassword(customers);
+            }
+            else if (customers.NewPassword == customers.ConfirmPassword)
+            {
+                _repo.UpdatePassword(customers);
+            }
 
             return RedirectToAction("ChangePassword");
 
