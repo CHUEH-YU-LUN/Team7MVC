@@ -119,6 +119,24 @@
             //        $(this).find(".account").toggle();
             //    }
             //);
+            $(document).ready(function () {
+
+                $("li").each(function () {
+
+                    if ($(this).hasClass("user-active")) {
+                        $(this).removeClass("user-active");
+                    }
+
+                });
+
+                $("#sidebar_Purchase_List").addClass("user-active");
+
+                $("li").on("click", function () {
+                    $("#sidebar_Purchase_List").removeClass("user-active");
+                    $(this).addClass("user-active");
+                });
+            });
+
         });
     </script>
 }

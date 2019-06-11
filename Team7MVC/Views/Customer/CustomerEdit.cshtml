@@ -163,13 +163,31 @@
             $("header").addClass("fixed-header");
 
             $("#logo").css("color", "#000");
-            $(".account").hide();
+            //$(".account").hide();
             $("#my-account").mouseenter(
                 function () {
                     //toggle 像電燈般開闔物件
                     $(this).find(".account").toggle();
                 }
             );
+
+            $(document).ready(function () {
+
+                $("li").each(function () {
+
+                    if ($(this).hasClass("user-active")) {
+                        $(this).removeClass("user-active");
+                    }
+
+                });
+
+                $("#sidebar_Personal_Information").addClass("user-active");
+
+                $("li").on("click", function () {
+                    $("#sidebar_Personal_Information").removeClass("user-active");
+                    $(this).addClass("user-active");
+                });
+            });
         });
     </script>
 }
