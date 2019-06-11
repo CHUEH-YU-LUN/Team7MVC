@@ -157,11 +157,11 @@
                 <div class="product-block">
                     <a href="@Url.Action("ProductDetail","Product" , new { id = item.ProductID })">
                         <div class="product-img">
-                            <img class="picture-wine" src="~/Assets/img_Products/@Html.DisplayFor(modelItem => item.Picture) " alt="p_sherry_oak" title="p_sherry_oak" />
+                            <img class="picture-wine" src="~/Assets/images/img_Products/@Html.DisplayFor(modelItem => item.Picture) " alt="p_sherry_oak" title="p_sherry_oak" />
 
-                            <img class="picture-color" src="~/Assets/img_ProductPage/circle-hover.png">
+                            <img class="picture-color" src="~/Assets/images/img_ProductIndex/circle-hover.png">
 
-                            <img class="picture-nocolor" src="~/Assets/img_ProductPage/circle.jpg">
+                            <img class="picture-nocolor" src="~/Assets/images/img_ProductIndex/circle.jpg">
                         </div>
                     </a>
 
@@ -184,76 +184,7 @@
         </div>
     </div>
 </div>
-@*<div class="jumbotron jumbotron-fluid my-0 "
-         style="text-align: center; background-image: url('../../Assets/img_Index/footer_subscribe_bg.jpg'); background-size: 100%;">
-        <p class="text-white">訂閱 THE MACALLAN 的最新消息</p>
-        <div class="input-group mx-auto" style="width: 26rem;">
-            <input type="text" class="form-control text-white" placeholder="輸入您的電子郵件地址"
-                   aria-label="Recipient's username" aria-describedby="basic-addon2"
-                   style="border: none; border-radius: 0; background-color: rgba(255,255,255,.1);">
-            <div class="input-group-append">
-                <button type="button" class="border border-dark bg-dark text-white" style="width: 8rem;">訂閱</button>
-            </div>
-        </div>
-    </div>*@
-
-@*<footer class="row p-0 m-0" style="background:#000;">
-        <div class="col-3 mt-5 pl-5">
-            <img src="../../Assets/img_ProductPage/estate_logo_0.png" alt="">
-        </div>
-
-        <div class="col-3 mt-5 p-0">
-            <a href="">ABOUT US</a><br>
-            <a href="">INSIDE THE MACALLAN</a><br>
-            <a href="">THE SIX PILLARS</a><br>
-            <a href="">DISTILLERY</a><br>
-            <a href="">CAREERS</a><br>
-            <a href="">CONTACT US</a><br>
-            <a href="">NEWSLETTER</a><br>
-        </div>
-
-        <div class="col-3 mt-5 p-0">
-            <a href="">OUR WHISKY</a><br>
-            <a href="">EXPLORE OUR SINGLE MALTS</a><br>
-            <a href="">SHERRY OAK</a><br>
-            <a href="">DOUBLE CASK</a><br>
-            <a href="">TRIPLE CASK MATURED</a><br>
-            <a href="">THE QUEST COLLECTION</a><br>
-            <a href="">THE MASTERS DECANTER SERIES</a><br>
-            <a href="">FINE & RARE</a><br>
-            <a href="">LIMITED RELEASES</a><br>
-            <a href="">TRAVEL RETAIL EXCLUSIVES</a><br>
-            <a href="">PAST RELEASES</a><br>
-        </div>
-
-        <div class="col-3 mt-5 p-0">
-            <a href="">SHOP</a><br>
-            <a href="">FAQS</a><br>
-            <a href="">DELIVERY INFORMATION</a><br>
-            <a href="">RETURNS INFORMATION</a><br>
-            <a href="">CONTACT US</a><br>
-            <a href="">TERMS AND CONDITIONS OF SALE</a><br>
-            <a href="">DISTILLERY TOURS - FAQS</a><br>
-            <div class="d-flex mt-3" style="border-top: 2px; border-color: #fff;">
-                <a href="" style="color:#fff; width: 20%;"><i class="fab fa-instagram"></i></a>
-                <a href="" style="color:#fff; width: 20%;"><i class="fab fa-facebook-f"></i></a>
-                <a href="" style="color:#fff; width: 20%;"><i class="fab fa-twitter"></i></a>
-                <a href="" style="color:#fff; width: 20%;"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-
-        <div class="col-12 mt-5">
-            <div class="d-flex justify-content-around">
-                <a href="">Drink Responsibly</a>
-                <a href="">The Edrington Group</a>
-                <a href="">Privacy Policy</a>
-                <a href="">Terms of Use</a>
-            </div>
-            <p class="text-center mt-3" style="color: #fff;">© 2019 The Macallan Distillers Limited, The Macallan</p>
-        </div>
-
-    </footer>*@
-@*</body>*@
+ 
 
 @section JQuery
 {
@@ -262,7 +193,7 @@
             $("header nav")
                 .removeClass("navbar-dark")
                 .addClass("navbar-light");
-            $("header a img").prop("src", "../Assets/img_Index/logo_dark.png");
+            //$("header a img").prop("src", "../Assets/images/img_Index/logo_dark.png");
             $("header .nav-item > a")
                 .removeClass("text-white")
                 .addClass("text-dark");

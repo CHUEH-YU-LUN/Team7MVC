@@ -1,7 +1,6 @@
 .about_img {
-    background: url(../img_Inside_the_macallane/mac-social-speyside.jpg) center center no-repeat;
+    background: url(../images/img_Inside_the_macallane/mac-social-speyside.jpg) center center no-repeat;
     height: 680px;
-    
 }
 .content{
     max-width: 31.25rem;
@@ -115,45 +114,44 @@
 .img_block {
     /*width: 699px;*/
     height: 600px;
-    background: url(../img_Inside_the_macallane/mac-social-historic-images-harvest-black-and-white.jpg);
-    width:100%;
+    background: url(../images/img_Inside_the_macallane/mac-social-historic-images-harvest-black-and-white.jpg);
+    width: 100%;
 }
 
 .img_block_2 {
     width: 699px;
     height: 600px;
-    background: url(../img_Inside_the_macallane/macallan-wood-close-up-of-cask-being-disgorged.jpg);
+    background: url(../images/img_Inside_the_macallane/macallan-wood-close-up-of-cask-being-disgorged.jpg);
     width: 100%;
 }
 
 .img_block_3 {
     width: 699px;
     height: 600px;
-    background: url(../img_Inside_the_macallane/macallan-wood-maturation-en-primeur-infront-of-casks.jpg);
-    width:100%;
+    background: url(../images/img_Inside_the_macallane/macallan-wood-maturation-en-primeur-infront-of-casks.jpg);
+    width: 100%;
 }
 
 .img_block_4 {
     width: 700px;
     height: 600px;
-    background: url(../img_Inside_the_macallane/acorn-to-glass-inside-the-macallan.jpg);
-    width:100%;
+    background: url(../images/img_Inside_the_macallane/acorn-to-glass-inside-the-macallan.jpg);
+    width: 100%;
 }
 
 .img_block_5 {
     width: 684px;
     height: 416px;
-    background: url(../img_Inside_the_macallane/six-pillars-editorial-feature.png) center center no-repeat;
+    background: url(../images/img_Inside_the_macallane/six-pillars-editorial-feature.png) center center no-repeat;
     background-size: cover;
     padding: 0 15px;
-    width:100%;
-
+    width: 100%;
 }
 
 .img_block_6 {
     width: 684px;
     height: 416px;
-    background: url(../img_Inside_the_macallane/mac-social-historic-images-cask-warehouse.jpg)center center no-repeat;
+    background: url(../images/img_Inside_the_macallane/mac-social-historic-images-cask-warehouse.jpg)center center no-repeat;
     background-size: cover;
     padding: 0 15px;
     width: 100%;
@@ -183,7 +181,7 @@
 .container_img {
     width: 100%;
     height: 500px;
-    background: url(../img_Inside_the_macallane/distillery-tour-background_0.jpg) center center no-repeat;
+    background: url(../images/img_Inside_the_macallane/distillery-tour-background_0.jpg) center center no-repeat;
     position: relative;
     padding: 4rem 2rem;
 }
@@ -192,7 +190,7 @@
 .container_img_2 {
     width: 100%;
     height: 500px;
-    background: url(../img_Inside_the_macallane/inside_the_macallan.png) center no-repeat;
+    background: url(../images/img_Inside_the_macallane/inside_the_macallan.png) center no-repeat;
     background-size: cover
 }
 
