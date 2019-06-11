@@ -22,26 +22,26 @@
                     </p>
                 </a>
             </li>
-            <li class="user-active account text-center">
+            <li class="user-active account text-center" id="sidebar_Personal_Information">
                 <a href="~/Customer/CustomerEdit">
-                    <i class="material-icons"></i>
+                    <i class="nc-icon nc-badge"></i>
                     <p>
                         Personal Information
                     </p>
                 </a>
             </li>
-            <li class="account">
+            <li class="account text-center" id="sidebar_Payway_Information">
                 <a href="#">
-                    <i class="nc-icon nc-single-02"></i>
+                    <i class="nc-icon nc-diamond"></i>
                     @*銀行帳號/信用卡*@
                     <p>
                         Payway Information
                     </p>
                 </a>
             </li>
-            <li class="account">
+            <li class="account text-center" id="sidebar_Change_Password">
                 <a href="~/Customer/ChangePassword">
-                    <i class="nc-icon nc-single-02"></i>
+                    <i class="nc-icon nc-key-25"></i>
                     @*更改密碼*@
                     <p>
                         @*@Html.ActionLink("Change Password", "ChangePassword", new { id = User.Identity.Name })*@
@@ -49,7 +49,7 @@
                     </p>
                 </a>
             </li>
-            <li>
+            <li id="sidebar_Purchase_List">
                 <a href="~/Customer/PurchaseList">
                     <i class="nc-icon nc-tile-56"></i>
                     <p>Purchase List</p>
