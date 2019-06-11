@@ -146,19 +146,19 @@ a {
 
 /* introduction */
 .introduction .card-1 {
-    background-image: url("../img_Index/card01.jpg");
+    background-image: url("../images/img_Index/card01.jpg");
     background-size: cover;
     height: 416px;
 }
 
 .introduction .card-2 {
-    background-image: url("../img_Index/card02.png");
+    background-image: url("../images/img_Index/card02.png");
     background-size: cover;
     height: 416px;
 }
 
 .introduction .card-3 {
-    background-image: url("../img_Index/card03.jpg");
+    background-image: url("../images/img_Index/card03.jpg");
     background-size: cover;
     height: 416px;
 }
@@ -183,7 +183,7 @@ a {
 
 /* special */
 .special {
-    background-image: url("../img_Index/distillery-tour-background.jpg");
+    background-image: url("../images/img_Index/distillery-tour-background.jpg");
     background-size: cover;
     min-height: 37.5rem;
 }
@@ -202,7 +202,7 @@ a {
     }
 
 .footer-email {
-    background-image: url("../img_Index/footer_subscribe_bg.jpg");
+    background-image: url("../images/img_Index/footer_subscribe_bg.jpg");
     background-size: cover;
     height: 200px;
 }

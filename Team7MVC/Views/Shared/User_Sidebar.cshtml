@@ -1,20 +1,20 @@
 ﻿@*@model Team7MVC.Models.Customers*@
 
-<div class="sidebar" data-color="white" data-active-color="danger" style="top: 4.5rem;">
-
+@*<div class="sidebar" data-color="gray" data-active-color="danger" style="top: 4.5rem;">*@
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="~/Assets/images/img_base/sidebar.jpg" style="top: 4.5rem;">
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-            @*<div class="logo-image-small">
-                <img src="~/Assets/img_user/@Html.DisplayFor(model => model.Picture)" alt="@Html.DisplayFor(model => model.CustomerID)">
-            </div>*@
-        </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        @*<a href="~/Customer/CustomerEdit" class="simple-text logo-mini">
+            <div class="logo-image-small">
+                    <img src="~/Assets/img_user/@Html.DisplayFor(model => model.Picture)" alt="@Html.DisplayFor(model => model.CustomerID)">
+                </div>
+        </a>*@
+        <a href="#" class="simple-text logo-normal">
             @Html.ActionLink(User.Identity.Name, "CustomerEdit", "Customer", new { id = User.Identity.Name }, new { @class = "dropdown-item" })
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li>
+            <li id="my-account">
                 <a href="~/Customer/CustomerEdit">
                     <i class="nc-icon nc-single-02"></i>
                     <p>
@@ -22,15 +22,15 @@
                     </p>
                 </a>
             </li>
-            <li class="active ">
+            <li class="user-active account text-center">
                 <a href="~/Customer/CustomerEdit">
-                    <i class="nc-icon nc-single-02"></i>
+                    <i class="material-icons"></i>
                     <p>
                         Personal Information
                     </p>
                 </a>
             </li>
-            <li>
+            <li class="account">
                 <a href="#">
                     <i class="nc-icon nc-single-02"></i>
                     @*銀行帳號/信用卡*@
@@ -39,13 +39,14 @@
                     </p>
                 </a>
             </li>
-            <li>
+            <li class="account">
                 <a href="~/Customer/ChangePassword">
                     <i class="nc-icon nc-single-02"></i>
                     @*更改密碼*@
-                <p>
-                    @Html.ActionLink("Change Password", "ChangePassword", new { id = User.Identity.Name })
-                </p>
+                    <p>
+                        @*@Html.ActionLink("Change Password", "ChangePassword", new { id = User.Identity.Name })*@
+                        Change Password
+                    </p>
                 </a>
             </li>
             <li>

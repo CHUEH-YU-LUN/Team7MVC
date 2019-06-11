@@ -88,9 +88,8 @@
                 </div>
                 <div class="form-group">
                     <div class="form-btn">
-                        <a href="#">Need help? Contact us</a>
-                        <button type="submit" class="btn complete-btn">Complete order</button>
-
+                        <a href="~/Wine/Contact">Need help? Contact us</a>
+                        <button type="submit" class="btn complete-btn" value="SHOP" onclick="location.href='../Product/Index'">Back to Shop</button>
                     </div>
                 </div>
                 <div class="form-group footer">
@@ -129,7 +128,7 @@
                                                     <td class="product-image">
                                                         <div class="product-thumbnail">
                                                             <div class="product-thumbnail-wrapper">
-                                                                <img class="product-thumbnail-image" src="~/Assets/img_Products/@Html.DisplayFor(modelItem => item.Picture)" alt="">
+                                                                <img class="product-thumbnail-image" src="~/Assets/images/img_Products/@Html.DisplayFor(modelItem => item.Picture)" alt="@Html.DisplayFor(modelItem => item.ProductName)">
                                                             </div>
                                                             <span class="product-thumbnail-quantity" aria-hidden="true">  @Html.DisplayFor(modelItem => item.Quantity)</span>
                                                         </div>
@@ -212,7 +211,7 @@
             $("header nav")
                 .removeClass("navbar-dark")
                 .addClass("navbar-light");
-            $("header a img").prop("src", "../Assets/img_Index/logo_dark.png");
+            //$("header a img").prop("src", "../Assets/images/img_Index/logo_dark.png");
             $("header .nav-item > a")
                 .removeClass("text-white")
                 .addClass("text-dark");

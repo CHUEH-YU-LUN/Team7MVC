@@ -28,7 +28,7 @@
                     </div>
 
                 </div>
-                <div class="card-footer">
+                @*<div class="card-footer">
                     <hr>
                     <div class="button-container">
                         <div class="row">
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
 
         </div>
@@ -151,7 +151,7 @@
             $("header nav")
                 .removeClass("navbar-dark")
                 .addClass("navbar-light");
-            $("header a img").prop("src", "/Assets/img_Index/logo_dark.png");
+            //$("header a img").prop("src", "/Assets/images/img_Index/logo_dark.png");
             $("header .nav-item > a")
                 .removeClass("text-white")
                 .addClass("text-dark");
@@ -161,6 +161,15 @@
                 .addClass("blackplaceholder")
                 .addClass("text-dark");
             $("header").addClass("fixed-header");
+
+            $("#logo").css("color", "#000");
+            $(".account").hide();
+            $("#my-account").mouseenter(
+                function () {
+                    //toggle 像電燈般開闔物件
+                    $(this).find(".account").toggle();
+                }
+            );
         });
     </script>
 }
