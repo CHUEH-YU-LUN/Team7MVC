@@ -2,7 +2,7 @@ body {
     font-family: adobe-garamond-pro, times new roman;
     text-align: center;
     color: black;
-    background: url("../img_ShoppingCart/bg_wood.jpg");
+    background: url("../images/img_base/bg_wood.jpg");
     font-size: 14px;
 }
 
@@ -161,7 +161,7 @@ body {
 }*/
 
 /*.nav-footer {
-    background: url("../img_ShoppingCart/nav-footer.jpg");
+    background: url("../images/img_base/nav-footer.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
