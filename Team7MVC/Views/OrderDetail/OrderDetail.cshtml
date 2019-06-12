@@ -58,28 +58,28 @@
                         <tr>
                             <td>
                                 <h2>Shipping address</h2>
-                                <p>   @customerDetails.CustomerName</p>
-                                <p> @customerDetails.City</p>
-                                <p>   @customerDetails.Address</p>
-                                <p>
-                                    @customerDetails.Phone
-                                </p>
-
-                            </td>
-                            <td>
-                                <h2>Billing address</h2>
                                 <p>   @customerDetails.ShipName</p>
                                 <p> @customerDetails.ShipCity</p>
                                 <p>   @customerDetails.ShipAddress</p>
                                 <p>
                                     @customerDetails.ShipPhone
                                 </p>
+
+                            </td>
+                            <td>
+                                <h2>Billing address</h2>
+                                <p>   @customerDetails.BillName</p>
+                                <p> @customerDetails.BillCity</p>
+                                <p>   @customerDetails.BillAddress</p>
+                                <p>
+                                    @customerDetails.BillPhone
+                                </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <h2>Shipping method</h2>
-                                <p>   @customerDetails.Freight</p>
+                                <p>   $100</p>
                             </td>
 
                         </tr>
@@ -177,10 +177,10 @@
                                         <tr class="total-line total-line-shipping">
                                             <th class="total-line-name" scope="row">Shipping</th>
                                             <td class="total-line-price">
-                                                <span class="order-summary-small-text" data-checkout-total-shipping-target="0">$@customerDetails.Freight</span>
+                                                <span class="order-summary-small-text" data-checkout-total-shipping-target="0">$100</span>
                                             </td>
                                         </tr>
-
+                                        
                                     </tbody>
                                     <tfoot class="total-line-tfooter">
 
@@ -188,7 +188,7 @@
                                             <th class="total-line-name payment-due-lable" scope="row">
                                                 <span class="payment-due-lable-total" style="font-size: 1.2rem;">Total</span>
                                             </th>
-                                            @{Total = Total + customerDetails.Freight;}
+                                            @{Total = Total + 100;}
                                             <td class="total-line-price payment-due">
                                                 <span class="payment-dueprice" data-checkout-payment-due-target="" style="font-size: 1.2rem;">$@Total</span>
                                             </td>

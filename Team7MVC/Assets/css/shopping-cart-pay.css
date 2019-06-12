@@ -2,22 +2,53 @@ html {
     height: 100%;
 }
 
-body {
-    font-family: 'Adobe Garamond Pro';
+body #orderbody {
+    font-family: 'Adobe Garamond Pro' !important;
     font-size: 14px;
     line-height: 1.3em;
 }
 
-.pay-main .container {
-    display: flex;
+.Products-Detail {
+    margin-top: 6.5%;
 }
 
-.pay-main-left {
+.Products-Detail .container {
+        max-width: 1140px;
+    }
+
+.pay-main .container {
+    display: flex;
+    max-width: 1140px;
+}
+
+.Paymentheader {
+    margin-top: 6.5%;
+}
+
+.Detail-path ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.Detail-path li a {
+    text-decoration: none;
+    color: #6a1e28;
+}
+
+.Detail-path li a:hover {
+        color: #6a1e28;
+    }
+
+.Detail-path ul i {
+    margin: 0 20px;
+}
+/*.pay-main-left {
     flex-direction: column;
-    width: 52%;
+    
     padding-right: 6%;
     float: left;
-}
+}*/
 
 .pay-main h2 {
     font-size: 1.48em;
@@ -118,6 +149,11 @@ label {
     display: flex;
     justify-content: space-between;
 }
+
+    .form-btn a:hover {
+        background: none;
+        color: #5e1b24;
+    }
 
     .form-btn a {
         color: #862633;
@@ -458,7 +494,7 @@ th:first-child {
 
 .order-summary-small-text {
     color: #707070;
-    font-size: 0.85714em;
+    font-size: 1.2em;
 }
 
 .order-summary-section {
