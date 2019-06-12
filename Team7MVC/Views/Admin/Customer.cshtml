@@ -9,19 +9,33 @@
         <div class="col-md-12">
             <div class="d-flex justify-content-between">
                 <div class="d-inline tool-left">
-                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        客戶排序
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">客戶ID</a>
-                        <a class="dropdown-item" href="#">客戶生日</a>
-                        <a class="dropdown-item" href="#">消費總金額</a>
-                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="submit" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                排序方式
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <button class="dropdown-item" id="SortBy" name="SortBy" value="CustomerID">會員ID</button>
+                                <button class="dropdown-item" id="SortBy" name="SortBy" value="CustomerName">名字</button>
+                                <button class="dropdown-item" id="SortBy" name="SortBy" value="Address">地址</button>
+                                <button class="dropdown-item" id="SortBy" name="SortBy" value="TotalCost desc">消費總額(高~低)</button>
+                            </div>
+                        </div>
+                    }
+                    @*<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            客戶排序
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">客戶ID</a>
+            <a class="dropdown-item" href="#">客戶生日</a>
+            <a class="dropdown-item" href="#">消費總金額</a>
+        </div>*@
                 </div>
                 <div class="d-inline tool-right">
                     @*<i class="fas fa-plus"></i>*@
-                    @Html.ActionLink("新增會員", "Create", "", new { @class = "btn btn-success" })
+                    @Html.ActionLink("新增會員", "CustomerCreate", "", new { @class = "btn btn-success" })
                 </div>
             </div>
             <div class="card">
@@ -88,8 +102,8 @@
                                             @Html.DisplayFor(modelItem => item.TotalCost)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("編輯", "Edit", new { id = item.CustomerID }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("刪除", "Delete", new { id = item.CustomerID }, new { @class = "btn btn-danger" })
+                                            @Html.ActionLink("編輯", "CustomerEdit", new { id = item.CustomerID }, new { @class = "btn btn-primary" })
+                                            @Html.ActionLink("刪除", "CustomerDelete", new { id = item.CustomerID }, new { @class = "btn btn-danger" })
                                         </td>
                                     </tr>
                                 }
