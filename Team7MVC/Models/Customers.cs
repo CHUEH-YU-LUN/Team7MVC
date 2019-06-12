@@ -12,12 +12,14 @@ namespace Team7MVC.Models
         public int CustomerID { get; set; }
         [Display(Name = "帳號")]
         public string Account { get; set; }
+        [DataType(DataType.Password)]
         [Display(Name = "密碼")]
         public string Password { get; set; }
+        [DataType(DataType.Password)]
         [Display(Name = "新密碼")]
         public string NewPassword { get; set; }
         [DataType(DataType.Password)]
-        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "密碼和確認密碼不相符")]
+        [System.ComponentModel.DataAnnotations.Compare("ConfirmPassword", ErrorMessage = "密碼和確認密碼不相符")]
         [Display(Name = "確認新密碼")]
         public string ConfirmPassword { get; set; }
         [Display(Name = "名字")]

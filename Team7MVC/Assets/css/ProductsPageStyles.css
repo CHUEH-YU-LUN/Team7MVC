@@ -4,7 +4,7 @@ html {
     /*font-family: sans-serif;*/ /*字型*/
     line-height: 1.4; /*行高*/
     /*color: #000;*/ /*顏色設定*/
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Times New Roman","微軟正黑體";
 }
 
 body {
@@ -101,4 +101,82 @@ dl a {
     width: 300px;
     text-align: center;
     margin: 0 auto;
+}
+
+.product_nav {
+    display: block;
+    float: left;
+    text-align: left;
+    margin-top: 33px;
+    position: relative;
+    border: 2px solid #669933;
+    border-width: 0 0 2px 0;
+    width: 950px;
+  
+
+}
+
+.product_nav_letter {
+    font-family: "Times New Roman","微軟正黑體";
+}
+
+.product_span{
+    padding:10px;
+}
+
+.product_border{
+    border:none;
+}
+
+.product_box {
+   margin:0 auto;
+}
+
+.product_btn {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    /*border-radius: .3rem;*/
+    color: #603f46 !important;
+    /*border-color: #603f46!important;*/
+    text-align: center !important;
+    font-family: "Times New Roman","微軟正黑體";
+}
+
+
+@media screen and (max-width: 767px) {
+  .product-block{
+      margin:0 auto;
+  }
+    .product_box {
+        margin: 0 auto;
+    }
+
+    .product-menu {
+        position: relative;
+    }
+    dl {
+        position: absolute;
+        flex-direction: column;
+        top: 40px;
+        width: 100%;
+        background: rgba(#fff,0.8);
+    }
+    button {
+        display: block;
+        background: #fff;
+        border: none;
+        width: 100%;
+        height: 40px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 40px;
+        float: right;
+        color: #603f46
+    }
+    i {
+        margin-left: 5px;
+    }
 }
