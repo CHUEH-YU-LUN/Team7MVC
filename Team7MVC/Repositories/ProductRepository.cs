@@ -279,6 +279,17 @@ namespace Team7MVC.Repositories
             return shopLists;
         }
 
+        public void DeleteShopListProduct(int CustomerID, int ProductID)
+        {
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"delete from ShopLists
+                                where CustomerID = @CustomerID and ProductID = @ProductID";
+
+                conn.Execute(sql, new { CustomerID, ProductID });
+            }
+        }
+
         public void Payment(PaymentViewModel paymentViewModel, int CustomerID)
         {
             List<ShopLists> shopLists;
