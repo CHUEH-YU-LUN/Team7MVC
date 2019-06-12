@@ -137,7 +137,7 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Payment(/*DateTime RequiredDate,*/ string BillFirstName, string BillLastName, string BillPhone, string BillCity, string BillAddress, string ShipFirstName, string ShipLastName, string ShipPhone, string ShipCity, string ShipAddress, string PayWay, string CreditCardNo4, string CreditCardNo8, string CreditCardNo12, string CreditCardNo16, string CreditCardMM, string CreditCardYY, int? CreditCardCSC, string IdentityCard)
+        public ActionResult Payment(/*DateTime RequiredDate,*/ string BillFirstName, string BillLastName, string BillPhone, string BillCity, string BillAddress, string ShipFirstName, string ShipLastName, string ShipPhone, string ShipCity, string ShipAddress, string PayWay, decimal Freight, string CreditCardNo4, string CreditCardNo8, string CreditCardNo12, string CreditCardNo16, string CreditCardMM, string CreditCardYY, int? CreditCardCSC, string IdentityCard)
         {
             CustomerPayment customerPayment;
 
@@ -159,7 +159,8 @@ namespace Team7MVC.Controllers
                         ShipAddress = ShipAddress,
                         ShipCity = ShipCity,
                         PayWay = "ATM",
-                        PayDate = DateTime.Now
+                        PayDate = DateTime.Now,
+                        Freight= Freight
                     };
                 }
                 else
@@ -178,7 +179,8 @@ namespace Team7MVC.Controllers
                         ShipAddress = ShipAddress,
                         ShipCity = ShipCity,
                         PayWay = "ATM",
-                        PayDate = DateTime.Now
+                        PayDate = DateTime.Now,
+                        Freight = Freight
                     };
                 }
 
@@ -205,7 +207,8 @@ namespace Team7MVC.Controllers
                         CreditCardCSC = CreditCardCSC,
                         CreditCardDate = CreditCardMM + CreditCardYY,
                         IdentityCard = IdentityCard,
-                        PayDate = DateTime.Now
+                        PayDate = DateTime.Now,
+                        Freight = Freight
                     };
                 }
                 else
@@ -228,7 +231,8 @@ namespace Team7MVC.Controllers
                         CreditCardCSC = CreditCardCSC,
                         CreditCardDate = CreditCardMM + CreditCardYY,
                         IdentityCard = IdentityCard,
-                        PayDate = DateTime.Now
+                        PayDate = DateTime.Now,
+                        Freight = Freight
                     };
                 }
 

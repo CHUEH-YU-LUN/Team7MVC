@@ -26,7 +26,7 @@ namespace Team7MVC.ViewModels
         public string ShipCity { get; set; }
         public string ShipAddress { get; set; }
         public string PayWay { get; set; }
-        public int Freight { get; set; }
+        public decimal Freight { get; set; }
         public string CreditCardNo { get; set; }
         public string CreditCardDate { get; set; }
         public int? CreditCardCSC { get; set; }

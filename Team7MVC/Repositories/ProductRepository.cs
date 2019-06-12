@@ -249,6 +249,7 @@ namespace Team7MVC.Repositories
         {
             List<ShopListsViewModel> shopLists;
 
+
             using (conn)
             {
                 string sql = @"select p.Picture, p.ProductName, p.Year, p.Origin, sh.Price,
@@ -267,6 +268,7 @@ namespace Team7MVC.Repositories
         {
             List<ShopLists> shopLists;
             int OrderID = 0;
+            //decimal Freight = 100;
             using (conn = new SqlConnection(connString))
             {
 
@@ -274,7 +276,23 @@ namespace Team7MVC.Repositories
 					         ShipperID, ShipAddress, Freight, PayWay, PayDate,BillName,BillAddress,BillCity,BillPhone)
                              values((select CustomerID from Customers where CustomerID = @CustomerID),
                              @OrderDate,@ShipName,@ShipperID,@ShipCity,@ShipPhone,@ShipAddress,@Freight, @PayWay, @PayDate,@BillName,@BillAddress,@BillCity,@BillPhone)";
-                conn.Execute(sql, new { CustomerID, paymentViewModel.customerPayment.OrderDate, paymentViewModel.customerPayment.ShipName, paymentViewModel.customerPayment.ShipperID, paymentViewModel.customerPayment.ShipCity, paymentViewModel.customerPayment.ShipAddress, paymentViewModel.customerPayment.ShipPhone, paymentViewModel.customerPayment.Freight, paymentViewModel.customerPayment.PayWay, paymentViewModel.customerPayment.PayDate, paymentViewModel.customerPayment.BillName, paymentViewModel.customerPayment.BillAddress, paymentViewModel.customerPayment.BillCity, paymentViewModel.customerPayment.BillPhone });
+                conn.Execute(sql, new
+                {
+                    CustomerID,
+                    paymentViewModel.customerPayment.OrderDate,
+                    paymentViewModel.customerPayment.ShipName,
+                    paymentViewModel.customerPayment.ShipCity,
+                    paymentViewModel.customerPayment.ShipPhone,
+                    paymentViewModel.customerPayment.ShipperID,
+                    paymentViewModel.customerPayment.ShipAddress,
+                    paymentViewModel.customerPayment.Freight,
+                    paymentViewModel.customerPayment.PayWay,
+                    paymentViewModel.customerPayment.PayDate,
+                    paymentViewModel.customerPayment.BillName,
+                    paymentViewModel.customerPayment.BillAddress,
+                    paymentViewModel.customerPayment.BillCity,
+                    paymentViewModel.customerPayment.BillPhone
+                });
 
                 sql = @"select OrderID 
                         from Orders as o
