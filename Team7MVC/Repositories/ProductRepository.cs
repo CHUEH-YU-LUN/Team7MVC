@@ -266,7 +266,7 @@ namespace Team7MVC.Repositories
 
             using (conn)
             {
-                string sql = @"select p.Picture, p.ProductName, p.Year, p.Origin, sh.Price,
+                string sql = @"select p.ProductID, p.Picture, p.ProductName, p.Year, p.Origin, sh.Price,
                                 sh.Quantity, (sh.Price * sh.Quantity) as TotalCost
                                 from ShopLists as sh
                                 INNER JOIN Products as p on p.ProductID = sh.ProductID

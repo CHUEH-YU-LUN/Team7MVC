@@ -67,7 +67,7 @@
                         <td class="product-name">
                             
                             <img src="~/Assets/images/img_Products/@Html.DisplayFor(modelItem => item.Picture)" alt="商品" />
-                            <a href="#">
+                            <a href="@Url.Action("ProductDetail","Product" , new { id = item.ProductId })">
                                 @Html.DisplayFor(modelItem => item.ProductName)
                             </a>
                         </td>
