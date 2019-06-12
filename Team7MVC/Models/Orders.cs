@@ -31,5 +31,22 @@ namespace Team7MVC.Models
         public string PayWay { get; set; }
         [Display(Name = "付款日期")]
         public DateTime PayDate { get; set; }
+
+        [Display(Name = "寄件人電話")]
+        public string ShipPhone { get; set; }
+        [Display(Name = "寄件人城市")]
+        public string ShipCity { get; set; }
+        [Display(Name = "收件人地址")]
+        public string BillAddress { get; set; }
+        [Display(Name = "收件人名字")]
+        public string BillName { get; set; }
+        [Display(Name = "收件人城市")]
+        public string BillCity { get; set; }
+        [Display(Name = "收件人電話")]
+        public string BillPhone { get; set; }
+        [Display(Name = "訂單狀態")]
+        public string Status { get; set; }
+        [Display(Name = "訂單總金額")]
+        public string TotalAmount { get; set; }
     }
 }

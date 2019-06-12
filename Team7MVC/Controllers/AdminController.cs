@@ -119,6 +119,7 @@ namespace Team7MVC.Controllers
             return RedirectToAction("Product");
         }
 
+        [HttpGet]
         public ActionResult Order()
         {
             var orders = _repo.GetAllOrders();
@@ -126,12 +127,157 @@ namespace Team7MVC.Controllers
             return View(orders);
         }
 
+        [HttpPost]
+        public ActionResult Order(string SortBy)
+        {
+            var orders = _repo.GetAllOrders(SortBy);
+
+            return View(orders);
+        }
+
+        [HttpGet]
+        public ActionResult OrderCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult OrderCreate( int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate, string ShipPhone, string ShipCity,)
+        {
+            Orders order  = new Orders()
+            {
+                CustomerID=CustomerID,
+                OrderDate= OrderDate,
+                RequiredDate= RequiredDate,
+                ShippedDate= ShippedDate,
+                ShipperID= ShipperID,
+                ShipName= ShipName,
+                ShipAddress= ShipAddress,
+                Freight= Freight,
+                PayWay= PayWay,
+                PayDate= PayDate
+            };
+
+            _repo.CreateOrder(order);
+
+            return RedirectToAction("Order");
+        }
+
+        [HttpGet]
+        public ActionResult OrderEdit(int Id)
+        {
+            var order = _repo.GetOrder(Id);
+            return View(order);
+        }
+
+        [HttpPost]
+        public ActionResult OrderEdit(int Id, int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate)
+        {
+            Orders order = new Orders()
+            {
+                OrderID = Id,
+                CustomerID = CustomerID,
+                OrderDate = OrderDate,
+                RequiredDate = RequiredDate,
+                ShippedDate = ShippedDate,
+                ShipperID = ShipperID,
+                ShipName = ShipName,
+                ShipAddress = ShipAddress,
+                Freight = Freight,
+                PayWay = PayWay,
+                PayDate = PayDate
+            };
+
+            _repo.UpdateOrder(order);
+
+            return RedirectToAction("Order");
+        }
+
+        [HttpGet]
+        public ActionResult OrderDelete(int Id)
+        {
+            _repo.DeleteOrder(Id);
+
+            return RedirectToAction("Order");
+        }
+
         // GET: Customers
+        [HttpGet]
         public ActionResult Customer()
         {
             var customers = _repo.GetAllCustomers();
 
             return View(customers);
+        }
+
+        [HttpPost]
+        public ActionResult Customer(string SortBy)
+        {
+            var customers = _repo.GetAllCustomers(SortBy);
+
+            return View(customers);
+        }
+
+        [HttpGet]
+        public ActionResult CustomerCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CustomerCreate(int Id, string Account, string CustomerName, string Gender, string Email, string Address, string Phone, decimal TotalCost)
+        {
+            AdminCustomersViewModel customer = new AdminCustomersViewModel()
+            {
+                CustomerID=Id,
+                Account= Account,
+                
+                CustomerName= CustomerName,
+                Gender= Gender,
+                Email= Email,
+                Address= Address,
+                Phone= Phone,
+                TotalCost=TotalCost
+            };
+
+            _repo.CreateCustomer(customer);
+
+            return RedirectToAction("Customer");
+        }
+
+        [HttpGet]
+        public ActionResult CustomerEdit(int Id)
+        {
+            var customer = _repo.GetCustomer(Id);
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult CustomerEdit(int Id, string Account, string CustomerName, string Gender, string Email, string Address, string Phone, decimal TotalCost)
+        {
+            AdminCustomersViewModel customer = new AdminCustomersViewModel()
+            {
+                CustomerID = Id,
+                Account = Account,
+                CustomerName = CustomerName,
+                Gender = Gender,
+                Email = Email,
+                Address = Address,
+                Phone = Phone,
+                TotalCost = TotalCost
+            };
+
+            _repo.UpdateCustomer(customer);
+
+            return RedirectToAction("Customer");
+        }
+
+        [HttpGet]
+        public ActionResult CustomerDelete(int Id)
+        {
+            _repo.DeleteCustomer(Id);
+
+            return RedirectToAction("Customer");
         }
 
         public ActionResult Messages()

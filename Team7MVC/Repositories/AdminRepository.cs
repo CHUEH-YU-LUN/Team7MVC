@@ -120,6 +120,71 @@ namespace Team7MVC.Repositories
             return orders;
         }
 
+        public List<Orders> GetAllOrders(string SortBy)
+        {
+            List<Orders> orders;
+            using (conn)
+            {
+                string sql = $"select * from Orders order by {SortBy}";
+                orders = conn.Query<Orders>(sql).ToList();
+            }
+
+            return orders;
+        }
+
+        public Orders GetOrder(int id)
+        {
+            Orders order;
+
+            using (conn)
+            {
+                string sql = "select * from Orders where OrderID = @OrderId";
+                order = conn.QueryFirstOrDefault<Orders>(sql, new { OrderId = id });
+            }
+
+            return order;
+        }
+
+        public void CreateOrder(Orders order)
+        {
+            using (conn)
+            {
+                string sql = @"insert into Orders (CustomerID,OrderDate,RequiredDate,ShippedDate,ShipperID,ShipName,ShipAddress,Freight,PayWay,PayDate)
+                                values(@CustomerID,@OrderDate,@RequiredDate,@ShippedDate,@ShipperID,@ShipName,@ShipAddress,@Freight,@PayWay,@PayDate);";
+                conn.Execute(sql, new { order.CustomerID,order.OrderDate, order.RequiredDate, order.ShippedDate, order.ShipperID, order.ShipName, order.ShipAddress, order.Freight, order.PayWay, order.PayDate });
+            }
+        }
+
+        public void UpdateOrder(Orders order)
+        {
+            using (conn)
+            {
+                string sql = @"update Orders
+                                set CustomerID=@CustomerID,
+                                OrderDate=@OrderDate,
+                                RequiredDate=@RequiredDate,
+                                ShippedDate=@ShippedDate,
+                                ShipperID=@ShipperID,
+                                ShipName=@ShipName,
+                                ShipAddress=@ShipAddress,
+                                Freight=@Freight,
+                                PayWay=@PayWay,
+                                PayDate=@PayDate
+                                where OrderID = @OrderID";
+                conn.Execute(sql, new { order.CustomerID, order.OrderDate, order.RequiredDate, order.ShippedDate, order.ShipperID, order.ShipName, order.ShipAddress, order.Freight, order.PayWay, order.PayDate, order.OrderID });
+            }
+        }
+
+        public void DeleteOrder(int Id)
+        {
+            using (conn)
+            {
+                string sql = @"delete from Orders
+                                where OrderID = @OrderId";
+                conn.Execute(sql, new { OrderId = Id });
+            }
+        }
+
         #endregion
 
         #region Customer
@@ -129,7 +194,7 @@ namespace Team7MVC.Repositories
             List<AdminCustomersViewModel> customers;
             using (conn)
             {
-                string sql = @"select c.CustomerID, c.Account, c.CustomerName, c.Gender, c.Email,
+                string sql = @"select c.CustomerID, c.Account,c.CustomerName, c.Gender, c.Email,
                                 c.Address, c.Phone,
                                 SUM(ISNULL(od.UnitPrice * od.Quantity,0)) as TotalCost
                                 from Customers as c
@@ -141,6 +206,67 @@ namespace Team7MVC.Repositories
             }
 
             return customers;
+        }
+
+        public List<AdminCustomersViewModel> GetAllCustomers(string SortBy)
+        {
+            List<AdminCustomersViewModel> customers;
+            using (conn)
+            {
+                string sql = $"select c.CustomerID, c.Account,c.CustomerName, c.Gender, c.Email,c.Address, c.Phone,SUM(ISNULL(od.UnitPrice * od.Quantity,0)) as TotalCost from Customers as c LEFT OUTER JOIN Orders as o on o.CustomerID = c.CustomerID LEFT OUTER JOIN [Order Details] as od on od.OrderID = o.OrderID group by c.CustomerID, c.Account, c.CustomerName, c.Gender, c.Email, c.Address, c.Phone order by {SortBy}";
+                customers = conn.Query<AdminCustomersViewModel>(sql).ToList();
+            }
+
+            return customers;
+        }
+
+        public AdminCustomersViewModel GetCustomer(int id)
+        {
+            AdminCustomersViewModel customer;
+
+            using (conn)
+            {
+                string sql = "select c.CustomerID, c.Account,c.CustomerName, c.Gender, c.Email,c.Address, c.Phone,SUM(ISNULL(od.UnitPrice * od.Quantity,0)) as TotalCost from Customers as c LEFT OUTER JOIN Orders as o on o.CustomerID = c.CustomerID LEFT OUTER JOIN [Order Details] as od on od.OrderID = o.OrderID group by c.CustomerID, c.Account, c.CustomerName, c.Gender, c.Email, c.Address, c.Phone where CustomerID = @CustomerId";
+                customer = conn.QueryFirstOrDefault<AdminCustomersViewModel>(sql, new { CustomerId = id });
+            }
+
+            return customer;
+        }
+
+        public void CreateCustomer(AdminCustomersViewModel customer)
+        {
+            using (conn)
+            {
+                string sql = @"insert into Customers (Account,CustomerName,Gender,Email,Address,Phone,TotalCost)
+                                values(@Account,@CustomerName,@Gender,@Email,@Address,@Phone,@TotalCost);";
+                conn.Execute(sql, new { customer.Account, customer.CustomerName, customer.Gender, customer.Email, customer.Address, customer.Phone, customer.TotalCost });
+            }
+        }
+
+        public void UpdateCustomer(AdminCustomersViewModel customer)
+        {
+            using (conn)
+            {
+                string sql = @"update Products
+                                set Account=@Account,
+                                CustomerName=@CustomerName,
+                                Gender=@Gender,
+                                Email=@Email,
+                                Address=@Address,
+                                Phone=@Phone,
+                                TotalCost=@TotalCost,
+                                where CustomerID = @CustomerID";
+                conn.Execute(sql, new { customer.Account, customer.CustomerName, customer.Gender, customer.Email, customer.Address, customer.Phone, customer.TotalCost });
+            }
+        }
+
+        public void DeleteCustomer(int Id)
+        {
+            using (conn)
+            {
+                string sql = $"select c.CustomerID, c.Account,c.CustomerName, c.Gender, c.Email,c.Address, c.Phone,SUM(ISNULL(od.UnitPrice * od.Quantity,0)) as TotalCost from Customers as c LEFT OUTER JOIN Orders as o on o.CustomerID = c.CustomerID LEFT OUTER JOIN [Order Details] as od on od.OrderID = o.OrderID group by c.CustomerID, c.Account, c.CustomerName, c.Gender, c.Email, c.Address, c.Phone WHERE CustomerID=@CustomerID";
+                conn.Execute(sql, new { CustomerId = Id });
+            }
         }
 
         #endregion
