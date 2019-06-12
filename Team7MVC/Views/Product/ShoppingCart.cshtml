@@ -65,7 +65,7 @@
                         <td class="Detail-table-title">@count</td>
                         @{ count++;}
                         <td class="product-name">
-                            
+
                             <img src="~/Assets/images/img_Products/@Html.DisplayFor(modelItem => item.Picture)" alt="商品" />
                             <a href="@Url.Action("ProductDetail","Product" , new { id = item.ProductId })">
                                 @Html.DisplayFor(modelItem => item.ProductName)
@@ -85,7 +85,9 @@
                         </td>
                         <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.TotalCost)</td>
                         <td class="Detail-table-title">
-                            <i class="far fa-trash-alt"></i>
+                            <a href="@Url.Action("DeleteShoppingCartProduct","Product" , new { ProductID = item.ProductId })" style="color:black">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
                         </td>
                     </tr>
                 }

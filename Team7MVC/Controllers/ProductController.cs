@@ -208,6 +208,15 @@ namespace Team7MVC.Controllers
             return RedirectToAction("Payment");
         }
 
+        [HttpGet]
+        public ActionResult DeleteShoppingCartProduct(int ProductID)
+        {
+            var CustomerID = _repo.GetCustomerID(User.Identity.Name);
+            _repo.DeleteShopListProduct(CustomerID, ProductID);
+
+            return RedirectToAction("ShoppingCart");
+        }
+
         [Authorize]
         [HttpGet]
         public ActionResult Payment()
