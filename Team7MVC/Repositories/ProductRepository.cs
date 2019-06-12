@@ -13,7 +13,7 @@ namespace Team7MVC.Repositories
     public class ProductRepository
     {
         private static string connString;
-        private readonly SqlConnection conn;
+        private SqlConnection conn;
         private SqlConnection _conn;
 
         public ProductRepository()
@@ -278,6 +278,17 @@ namespace Team7MVC.Repositories
             return shopLists;
         }
 
+        public void DeleteShopListProduct(int CustomerID, int ProductID)
+        {
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"delete from ShopLists
+                                where CustomerID = @CustomerID and ProductID = @ProductID";
+
+                conn.Execute(sql, new { CustomerID, ProductID });
+            }
+        }
+
         public void Payment(Orders orders, string Account)
         {
             List<ShopLists> shopLists;
@@ -319,7 +330,7 @@ namespace Team7MVC.Repositories
         {
             int CustomerId;
 
-            using (conn)
+            using (conn = new SqlConnection(connString))
             {
                 string sql = @"select CustomerID 
                                 from Customers
