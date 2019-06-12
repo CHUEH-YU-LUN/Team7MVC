@@ -31,5 +31,9 @@ namespace Team7MVC.Models
         public string PayWay { get; set; }
         [Display(Name = "付款日期")]
         public DateTime PayDate { get; set; }
+        [Display(Name = "訂單狀態")]
+        public string Status { get; set; }
+        [Display(Name = "訂單總金額")]
+        public string TotalAmount { get; set; }
     }
 }
