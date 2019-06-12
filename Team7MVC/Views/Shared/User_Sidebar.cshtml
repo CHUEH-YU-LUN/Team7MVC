@@ -14,15 +14,15 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li id="my-account">
-                <a href="~/Customer/CustomerEdit">
-                    <i class="nc-icon nc-single-02"></i>
-                    <p>
-                        My Account
-                    </p>
-                </a>
-            </li>
-            <li class="user-active account text-center" id="sidebar_Personal_Information">
+            @*<li id="my-account">
+            <a href="~/Customer/CustomerEdit">
+                <i class="nc-icon nc-single-02"></i>
+                <p>
+                    My Account
+                </p>
+            </a>
+        </li>*@
+            <li class="user-active account" id="sidebar_Personal_Information">
                 <a href="~/Customer/CustomerEdit">
                     <i class="nc-icon nc-badge"></i>
                     <p>
@@ -30,16 +30,7 @@
                     </p>
                 </a>
             </li>
-            <li class="account text-center" id="sidebar_Payway_Information">
-                <a href="#">
-                    <i class="nc-icon nc-diamond"></i>
-                    @*銀行帳號/信用卡*@
-                    <p>
-                        Payway Information
-                    </p>
-                </a>
-            </li>
-            <li class="account text-center" id="sidebar_Change_Password">
+            <li class="account" id="sidebar_Change_Password">
                 <a href="~/Customer/ChangePassword">
                     <i class="nc-icon nc-key-25"></i>
                     @*更改密碼*@
@@ -55,6 +46,16 @@
                     <p>Purchase List</p>
                 </a>
             </li>
+            <li class="account" id="sidebar_Payway_Information">
+                <a href="#">
+                    <i class="nc-icon nc-diamond"></i>
+                    @*銀行帳號/信用卡*@
+                    <p>
+                        Payway Information
+                    </p>
+                </a>
+            </li>
+
 
             <li class="active-pro">
                 <a href="~/Wine/Index">

@@ -84,8 +84,11 @@ namespace Team7MVC.Repositories
             List<Orders> orders;
             using (conn)
             {
-                string sql = @"select * from Orders
-                               where CustomerID = (select c.CustomerID from Customers c where Account = @Account)";
+                string sql = @"select o.OrderID, o.OrderDate, o.PayWay, SUM(od.Quantity * od.UnitPrice * od.Discount) as TotalAmount, o.Status
+                               from Orders as o
+                               INNER JOIN [Order Details] as od on od.OrderID = o.OrderID
+                               where o.CustomerID = (select c.CustomerID from Customers c where Account = @Account)
+                               group by o.OrderID, o.OrderDate, o.PayWay, o.Status";
                 orders = conn.Query<Orders>(sql, new { Account = Account }).ToList();
             }
 

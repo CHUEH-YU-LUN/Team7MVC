@@ -23,25 +23,17 @@ namespace Team7MVC.Models
         public int ShipperID { get; set; }
         [Display(Name = "收貨人")]
         public string ShipName { get; set; }
-        [Display(Name = "收貨城市")]
-        public string ShipCity { get; set; }
         [Display(Name = "收貨地址")]
         public string ShipAddress { get; set; }
-        [Display(Name = "收貨電話")]
-        public string ShipPhone { get; set; }
         [Display(Name = "運費")]
         public decimal Freight { get; set; }
         [Display(Name = "付款方式")]
         public string PayWay { get; set; }
         [Display(Name = "付款日期")]
         public DateTime PayDate { get; set; }
-        [Display(Name = "付款人")]
-        public string BillName { get; set; }
-        [Display(Name = "付款地址")]
-        public string BillAddress { get; set; }
-        [Display(Name = "付款電話")]
-        public string BillPhone { get; set; }
-        [Display(Name = "付款城市")]
-        public string BillCity { get; set; }
+        [Display(Name = "訂單狀態")]
+        public string Status { get; set; }
+        [Display(Name = "訂單總金額")]
+        public string TotalAmount { get; set; }
     }
 }
