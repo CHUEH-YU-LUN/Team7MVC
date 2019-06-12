@@ -221,27 +221,120 @@ namespace Team7MVC.Controllers
         [HttpGet]
         public ActionResult Payment()
         {
-            int CustomerId = _repo.GetCustomerID(User.Identity.Name);
-            ViewData["CustomerId"] = CustomerId;
-            return View();
+            PaymentViewModel paymentViewModel = new PaymentViewModel();
+            List<ShopListsViewModel> shopList;
+            shopList = _repo.ShopList(User.Identity.Name);
+            paymentViewModel.shopList = shopList;
+
+            return View(paymentViewModel);
         }
 
         [HttpPost]
-        public ActionResult Payment(DateTime RequiredDate, string ShipName, string ShipAddress, decimal Freight, string PayWay)
+        public ActionResult Payment(/*DateTime RequiredDate,*/ string BillFirstName, string BillLastName, string BillPhone, string BillCity, string BillAddress, string ShipFirstName, string ShipLastName, string ShipPhone, string ShipCity, string ShipAddress, string PayWay, string CreditCardNo4, string CreditCardNo8, string CreditCardNo12, string CreditCardNo16, string CreditCardMM, string CreditCardYY, int? CreditCardCSC, string IdentityCard)
         {
-            Orders orders = new Orders()
-            {
-                OrderDate = DateTime.Now,
-                RequiredDate = RequiredDate,
-                ShipperID = 1,
-                ShipName = ShipName,
-                ShipAddress = ShipAddress,
-                Freight = Freight,
-                PayWay = PayWay,
-                PayDate = DateTime.Now
-            };
+            CustomerPayment customerPayment;
 
-            _repo.Payment(orders, User.Identity.Name);
+            if (string.IsNullOrEmpty(CreditCardNo4) && string.IsNullOrEmpty(CreditCardNo8) && string.IsNullOrEmpty(CreditCardNo12) && string.IsNullOrEmpty(CreditCardNo16) && string.IsNullOrEmpty(CreditCardMM) && string.IsNullOrEmpty(CreditCardYY) && CreditCardCSC == null && string.IsNullOrEmpty(IdentityCard))
+            {
+                if (string.IsNullOrEmpty(BillFirstName) && string.IsNullOrEmpty(BillLastName) && string.IsNullOrEmpty(BillCity) && string.IsNullOrEmpty(BillAddress) && string.IsNullOrEmpty(BillPhone))
+                {
+                    customerPayment = new CustomerPayment()
+                    {
+                        OrderDate = DateTime.Now,
+                        //RequiredDate = DateTime.Now,
+                        BillName = ShipFirstName + ShipLastName,
+                        BillPhone = ShipPhone,
+                        BillCity = ShipCity,
+                        BillAddress = ShipAddress,
+                        ShipperID = 1,
+                        ShipName = ShipFirstName + ShipLastName,
+                        ShipPhone = ShipPhone,
+                        ShipAddress = ShipAddress,
+                        ShipCity = ShipCity,
+                        PayWay = "ATM",
+                        PayDate = DateTime.Now
+                    };
+                }
+                else
+                {
+                    customerPayment = new CustomerPayment()
+                    {
+                        OrderDate = DateTime.Now,
+                        //RequiredDate = DateTime.Now,
+                        BillName = BillFirstName + BillLastName,
+                        BillPhone = BillPhone,
+                        BillCity = BillCity,
+                        BillAddress = BillAddress,
+                        ShipperID = 1,
+                        ShipName = ShipFirstName + ShipLastName,
+                        ShipPhone = ShipPhone,
+                        ShipAddress = ShipAddress,
+                        ShipCity = ShipCity,
+                        PayWay = "ATM",
+                        PayDate = DateTime.Now
+                    };
+                }
+
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(BillFirstName) && string.IsNullOrEmpty(BillLastName) && string.IsNullOrEmpty(BillCity) && string.IsNullOrEmpty(BillAddress) && string.IsNullOrEmpty(BillPhone))
+                {
+                    customerPayment = new CustomerPayment()
+                    {
+                        OrderDate = DateTime.Now,
+                        //RequiredDate = DateTime.Now,
+                        BillName = ShipFirstName + ShipLastName,
+                        BillPhone = ShipPhone,
+                        BillCity = ShipCity,
+                        BillAddress = ShipAddress,
+                        ShipperID = 1,
+                        ShipName = ShipFirstName + ShipLastName,
+                        ShipPhone = ShipPhone,
+                        ShipAddress = ShipAddress,
+                        ShipCity = ShipCity,
+                        PayWay = "CreditCard",
+                        CreditCardNo = CreditCardNo4 + CreditCardNo8 + CreditCardNo12 + CreditCardNo16,
+                        CreditCardCSC = CreditCardCSC,
+                        CreditCardDate = CreditCardMM + CreditCardYY,
+                        IdentityCard = IdentityCard,
+                        PayDate = DateTime.Now
+                    };
+                }
+                else
+                {
+                    customerPayment = new CustomerPayment()
+                    {
+                        OrderDate = DateTime.Now,
+                        //RequiredDate = DateTime.Now,
+                        BillName = BillFirstName + BillLastName,
+                        BillPhone = BillPhone,
+                        BillCity = BillCity,
+                        BillAddress = BillAddress,
+                        ShipperID = 1,
+                        ShipName = ShipFirstName + ShipLastName,
+                        ShipPhone = ShipPhone,
+                        ShipAddress = ShipAddress,
+                        ShipCity = ShipCity,
+                        PayWay = "CreditCard",
+                        CreditCardNo = CreditCardNo4 + CreditCardNo8 + CreditCardNo12 + CreditCardNo16,
+                        CreditCardCSC = CreditCardCSC,
+                        CreditCardDate = CreditCardMM + CreditCardYY,
+                        IdentityCard = IdentityCard,
+                        PayDate = DateTime.Now
+                    };
+                }
+
+
+
+            }
+
+            PaymentViewModel paymentViewModel = new PaymentViewModel()
+            {
+                customerPayment = customerPayment
+            };
+            var CustomerID = _repo.GetCustomerID(User.Identity.Name);
+            _repo.Payment(paymentViewModel, CustomerID);
 
             return RedirectToAction("OrderDetail", "OrderDetail");
         }

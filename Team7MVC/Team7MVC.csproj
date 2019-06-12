@@ -156,6 +156,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MonthSaleViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailViewModel.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ShopListsViewModel.cs" />
   </ItemGroup>
@@ -386,7 +387,6 @@
     <Content Include="Views\Shared\ShoppingCartPartial.cshtml" />
     <Content Include="Views\Wine\_Payment.cshtml" />
     <Content Include="Views\Wine\Contact.cshtml" />
-    <Content Include="Views\Product\Payment.cshtml" />
     <Content Include="Views\Shared\User_Sidebar.cshtml" />
     <Content Include="Views\Shared\User_Layout.cshtml" />
     <Content Include="Views\Customer\_ViewStart.cshtml" />

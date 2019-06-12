@@ -1,3 +1,8 @@
+.pay-main-left {
+    flex-direction: column;
+    padding-right: 6%;
+    float: left;
+}
 .check-icon {
     text-align: left;
     display: flex;
@@ -14,7 +19,7 @@
 }
 
 .pay-main {
-    margin-top: 25px;
+    margin-top: 85px;
 }
 
 .order-Numbering {
