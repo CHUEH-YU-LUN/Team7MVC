@@ -60,12 +60,12 @@ namespace Team7MVC.Controllers
         [HttpPost]
         public ActionResult ChangePassword(Customers customers)
         {
-            if (!ModelState.IsValid || customers.Password != customers.Password)
+            if (!ModelState.IsValid || customers.NewPassword != customers.ConfirmPassword)
             {
                 return RedirectToAction("ChangePassword");
 
             }
-            else if (customers.NewPassword == customers.ConfirmPassword)
+            if (customers.NewPassword == customers.ConfirmPassword)
             {
                 _repo.UpdatePassword(customers);
             }
