@@ -40,29 +40,22 @@ namespace Team7MVC.Repositories
 
             return products;
         }
-        
-        public List<Products> GetNewProducts()
+
+        public List<Products> Getproducts(int? Id)
         {
             List<Products> products;
 
             using (conn)
             {
-                string sql = @"select * from Products
+                string sql = string.Empty;
+                if (Id == 1)
+                {
+                    sql = @"select * from Products
                             where Year = (select top 1 Year from Products order by Year desc)";
-
-                products = conn.Query<Products>(sql).ToList();
-            }
-
-            return products;
-        }
-
-        public List<Products> GetHotProducts()
-        {
-            List<Products> products;
-
-            using (conn)
-            {
-                string sql = @"with t1 (ProductId, Total)
+                }
+                else if (Id == 2)
+                {
+                    sql = @"with t1 (ProductId, Total)
                             as
                             (
 	                            select top 6 ProductID, SUM(Quantity) as Total 
@@ -74,24 +67,16 @@ namespace Team7MVC.Repositories
 		                    p.UnitPrice, p.Stock, p.Grade, p.Variety, p.Area, p.Picture, p.Introduction, p.CategoryID
                             from t1 as t
                             INNER JOIN Products as p on p.ProductID = t.ProductId";
-
-                products = conn.Query<Products>(sql).ToList();
-            }
-
-            return products;
-        }
-
-        public List<Products> GetExpensiveProducts()
-        {
-            List<Products> products;
-
-            using (conn)
-            {
-                string sql = @"select * from Products
+                }
+                else
+                {
+                    sql = @"select * from Products
                             where UnitPrice >= 10000
                             order by UnitPrice desc";
+                }
 
                 products = conn.Query<Products>(sql).ToList();
+
             }
 
             return products;
@@ -267,8 +252,8 @@ namespace Team7MVC.Repositories
 
             using (conn)
             {
-                string sql = @"select p.ProductID, p.Picture, p.ProductName, p.Year, p.Origin, sh.Price,
-                                p.stock, sh.Quantity, (sh.Price * sh.Quantity) as TotalCost
+                string sql = @"select p.Picture, p.ProductName, p.Year, p.Origin, sh.Price,
+                                sh.Quantity, (sh.Price * sh.Quantity) as TotalCost
                                 from ShopLists as sh
                                 INNER JOIN Products as p on p.ProductID = sh.ProductID
                                 INNER JOIN Customers as c on c.CustomerID = sh.CustomerID
@@ -279,18 +264,7 @@ namespace Team7MVC.Repositories
             return shopLists;
         }
 
-        public void DeleteShopListProduct(int CustomerID, int ProductID)
-        {
-            using (conn = new SqlConnection(connString))
-            {
-                string sql = @"delete from ShopLists
-                                where CustomerID = @CustomerID and ProductID = @ProductID";
-
-                conn.Execute(sql, new { CustomerID, ProductID });
-            }
-        }
-
-        public void Payment(Orders orders, string Account)
+        public void Payment(PaymentViewModel paymentViewModel, int CustomerID)
         {
             List<ShopLists> shopLists;
             int OrderID = 0;
