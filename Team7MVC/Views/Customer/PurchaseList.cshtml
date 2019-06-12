@@ -57,15 +57,15 @@
                                             if (item.Status == "未付款" || item.Status == "已付款")
                                             {
                                                 <td>
-                                                    @Html.ActionLink("訂單明細", "Details", new { id = item.OrderID }, new { @class = "btn btn-secondary" })
-                                                    @Html.ActionLink("取消訂單", "Cancel", new { id = item.OrderID }, new { @class = "btn btn-light" })
+                                                    @Html.ActionLink("訂單明細", "Order_Details", new { id = item.OrderID }, new { @class = "btn btn-secondary" })
+                                                    @Html.ActionLink("取消訂單", "Order_Delete", new { id = item.OrderID }, new { @class = "btn btn-light" })
                                                 </td>
                                             }
                                             else if (item.Status == "已出貨")
                                             {
                                                 <td>
-                                                    @Html.ActionLink("訂單明細", "Details", new { id = item.OrderID }, new { @class = "btn btn-secondary" })
-                                                    @Html.ActionLink("訂單退貨", "Cancel", new { id = item.OrderID }, new { @class = "btn btn-light" })
+                                                    @Html.ActionLink("訂單明細", "Order_Details", new { id = item.OrderID }, new { @class = "btn btn-secondary" })
+                                                    @Html.ActionLink("商品退貨", "Order_Return", new { id = item.OrderID }, new { @class = "btn btn-light" })
                                                 </td>
                                             }
                                         }
