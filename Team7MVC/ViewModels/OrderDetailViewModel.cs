@@ -13,11 +13,11 @@ namespace Team7MVC.ViewModels
     }
     public class CustomerDetail
     {
-        public string CustomerName { get; set; }
+        public string BillName { get; set; }
         public string Email { get; set; }
-        public string City { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
+        public string BillCity { get; set; }
+        public string BillAddress { get; set; }
+        public string BillPhone { get; set; }
         public string ShipName { get; set; }
         public string ShipCity { get; set; }
         public string ShipAddress { get; set; }

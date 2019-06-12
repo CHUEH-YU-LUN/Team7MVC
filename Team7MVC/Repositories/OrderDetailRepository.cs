@@ -45,8 +45,8 @@ namespace Team7MVC.Repositories
             using (conn)
             {
 
-                string sql = @"select  c.CustomerName, c.City,c.Email,c.Address,c.Phone,
-                            o.ShipName,o.ShipPhone,o.PayWay,o.ShipCity,o.ShipAddress,o.Freight 
+                string sql = @"select c.Email,o.ShipName,o.ShipPhone,o.PayWay,o.ShipCity,o.ShipAddress,
+                            o.BillName, o.BillCity,o.BillAddress,o.BillPhone,o.Freight 
                             from Orders as o
                             INNER JOIN [Order Details] as od on od.OrderID = o.OrderID
                             INNER JOIN Products as p on p.ProductID = od.ProductID
@@ -60,7 +60,7 @@ namespace Team7MVC.Repositories
                             )";
 
                 orderDetailList.customerDetails = conn.QueryFirstOrDefault<CustomerDetail>(sql, new { Account });
-                sql = @"select  od.Quantity,od.UnitPrice,
+                sql = @"select od.Quantity,od.UnitPrice,
                         p.ProductName, p.Picture 
                         from Orders as o
                         INNER JOIN [Order Details] as od on od.OrderID = o.OrderID
