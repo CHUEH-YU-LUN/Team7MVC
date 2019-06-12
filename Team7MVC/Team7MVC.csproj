@@ -173,6 +173,7 @@
     <Content Include="Assets\css\shopping-cart-detail.css" />
     <Content Include="Assets\css\shopping-cart-pay.css" />
     <Content Include="Assets\css\shopping-cart.css" />
+    <Content Include="Assets\css\User\Order_Details.css" />
     <Content Include="Assets\css\User\user_layout.css" />
     <Content Include="Assets\demo\demo.css" />
     <Content Include="Assets\demo\demo.js" />

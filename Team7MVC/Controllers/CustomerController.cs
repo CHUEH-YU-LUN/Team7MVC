@@ -80,5 +80,12 @@ namespace Team7MVC.Controllers
             var orders = _repo.OrderQuery(User.Identity.Name);
             return View(orders);
         }
+        [HttpGet]
+        public ActionResult Order_Details(int Id)
+        {
+            var orders_Details = _repo.QueryOrderDetails(Id);
+            return View(orders_Details);
+        }
+
     }
 }
