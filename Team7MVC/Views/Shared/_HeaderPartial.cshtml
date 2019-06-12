@@ -53,7 +53,7 @@
                         @{
                             if (User.Identity.Name == string.Empty)
                             {
-                                @Html.ActionLink("Sign in ", "Login", new { ActionName = ViewBag.Title }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Sign in ", "Login", "Account", new { ActionName = ViewBag.Title }, new { @class = "dropdown-item" })
                                 @Html.ActionLink("Create account", "Register", "Account", null, new { @class = "dropdown-item" })
                             }
                             else
