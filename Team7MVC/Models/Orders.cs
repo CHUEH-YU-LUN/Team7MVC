@@ -23,12 +23,8 @@ namespace Team7MVC.Models
         public int ShipperID { get; set; }
         [Display(Name = "收貨人")]
         public string ShipName { get; set; }
-        [Display(Name = "收貨城市")]
-        public string ShipCity { get; set; }
         [Display(Name = "收貨地址")]
         public string ShipAddress { get; set; }
-        [Display(Name = "收貨電話")]
-        public string ShipPhone { get; set; }
         [Display(Name = "運費")]
         public decimal Freight { get; set; }
         [Display(Name = "付款方式")]
