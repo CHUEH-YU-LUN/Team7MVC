@@ -40,10 +40,7 @@ body #orderbody {
         color: #6a1e28;
     }
 
-.Detail-path ul i {
-    margin: 0 20px;
-}
-/*.pay-main-left {
+.pay-main-left {
     flex-direction: column;
     
     padding-right: 6%;
@@ -76,9 +73,9 @@ label {
     margin: 0;
 }
 
-/*.form-control {
+.form-control {
     height: 53px;
-}*/
+}
 
     .form-control:focus {
         border-color: #862633;
@@ -166,7 +163,7 @@ label {
         color: #862633;
     }
 
-.complete-btn {
+.btn {
     background: #862633;
     color: white;
     float: right;
@@ -176,7 +173,7 @@ label {
     line-height: 10px;
 }
 
-    .complete-btn:hover {
+    .btn:hover {
         color: white;
         background: #5e1b24;
     }

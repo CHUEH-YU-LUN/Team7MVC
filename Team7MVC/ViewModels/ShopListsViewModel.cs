@@ -8,6 +8,8 @@ namespace Team7MVC.ViewModels
 {
     public class ShopListsViewModel
     {
+        [Display(Name = "商品編號")]
+        public int ProductId { get; set; }
         [Display(Name = "商品圖片")]
         public string Picture { get; set; }
         [Display(Name = "商品名稱")]
