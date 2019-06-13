@@ -172,6 +172,7 @@
     <Content Include="Assets\css\shopping-cart-detail.css" />
     <Content Include="Assets\css\shopping-cart-pay.css" />
     <Content Include="Assets\css\shopping-cart.css" />
+    <Content Include="Assets\css\User\Order_Details.css" />
     <Content Include="Assets\css\User\user_layout.css" />
     <Content Include="Assets\demo\demo.css" />
     <Content Include="Assets\demo\demo.js" />
@@ -397,6 +398,8 @@
     <Content Include="Views\OrderDetail\OrderDetail.cshtml" />
     <Content Include="Views\Customer\ChangePassword.cshtml" />
     <Content Include="Views\Customer\PurchaseList.cshtml" />
+    <Content Include="Views\Customer\Order_Details.cshtml" />
+    <Content Include="Views\Customer\PaywayInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

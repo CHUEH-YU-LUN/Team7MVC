@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Team7MVC.Models;
+using Team7MVC.ViewModels;
 
 namespace Team7MVC.Repositories
 {
@@ -93,6 +94,38 @@ namespace Team7MVC.Repositories
             }
 
             return orders;
+        }
+
+        public List<ShopListsViewModel> QueryOrderDetails(int id)
+        {
+            List<ShopListsViewModel> shopLists;
+
+            using (conn)
+            {
+                string sql = @"select p.Picture, p.ProductName, p.Year, p.Origin, od.UnitPrice as Price,
+                                od.Quantity, (od.UnitPrice * od.Quantity * od.Discount) as TotalCost
+                                from [Order Details] as od
+								INNER JOIN Orders as o on o.OrderID = od.OrderID
+                                INNER JOIN Products as p on p.ProductID = od.ProductID
+                                where o.OrderID = 1";
+                shopLists = conn.Query<ShopListsViewModel>(sql, new { id }).ToList();
+            }
+
+            return shopLists;
+        }
+        
+        public List<ShopListsViewModel> QueryPaywayInfo(string Account)
+        {
+            List<ShopListsViewModel> shopLists;
+
+            using (conn)
+            {
+                string sql = @"select * from CreditCard
+                               where CustomerID = (select CustomerID from Customers where Account = @Account)";
+                shopLists = conn.Query<ShopListsViewModel>(sql, new { Account }).ToList();
+            }
+
+            return shopLists;
         }
     }
 }
