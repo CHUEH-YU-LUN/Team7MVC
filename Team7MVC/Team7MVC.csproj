@@ -178,6 +178,7 @@
     <Content Include="Assets\demo\demo.css" />
     <Content Include="Assets\demo\demo.js" />
     <Content Include="Assets\images\img_base\bg_wood.jpg" />
+    <Content Include="Assets\images\img_base\check.jpg" />
     <Content Include="Assets\images\img_base\nav-footer.jpg" />
     <Content Include="Assets\images\img_base\QR_Code.png" />
     <Content Include="Assets\images\img_user\sidebar_background.jpg" />

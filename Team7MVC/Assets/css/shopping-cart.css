@@ -127,7 +127,7 @@ body {
 }
 
 .product-name img {
-    float: left;
+    /*float: left;*/
     margin: 0 5px;
     width: 50px;
 }
@@ -137,6 +137,14 @@ body {
     text-decoration: none;
     color: rgb(94, 94, 94);
 }
+
+a {
+    display: block;
+}
+
+    a:hover {
+        background-color: transparent;
+    }
 
 .Detail .Detail-price td:nth-of-type(3n+1) {
     text-align: right;
