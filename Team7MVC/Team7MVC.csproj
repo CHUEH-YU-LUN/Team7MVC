@@ -402,6 +402,7 @@
     <Content Include="Views\Customer\PurchaseList.cshtml" />
     <Content Include="Views\Customer\Order_Details.cshtml" />
     <Content Include="Views\Customer\PaywayInfo.cshtml" />
+    <Content Include="Views\Product\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
