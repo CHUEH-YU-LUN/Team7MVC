@@ -113,5 +113,19 @@ namespace Team7MVC.Repositories
 
             return shopLists;
         }
+        
+        public List<ShopListsViewModel> QueryPaywayInfo(string Account)
+        {
+            List<ShopListsViewModel> shopLists;
+
+            using (conn)
+            {
+                string sql = @"select * from CreditCard
+                               where CustomerID = (select CustomerID from Customers where Account = @Account)";
+                shopLists = conn.Query<ShopListsViewModel>(sql, new { Account }).ToList();
+            }
+
+            return shopLists;
+        }
     }
 }

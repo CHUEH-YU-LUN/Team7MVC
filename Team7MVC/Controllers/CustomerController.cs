@@ -87,5 +87,11 @@ namespace Team7MVC.Controllers
             return View(orders_Details);
         }
 
+        [HttpGet]
+        public ActionResult PaywayInfo()
+        {
+            var PaywayInfo = _repo.QueryPaywayInfo(User.Identity.Name);
+            return View(PaywayInfo);
+        }
     }
 }
