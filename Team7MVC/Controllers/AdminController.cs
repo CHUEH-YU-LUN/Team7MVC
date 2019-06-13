@@ -142,7 +142,7 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult OrderCreate( int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate, string ShipPhone, string ShipCity,)
+        public ActionResult OrderCreate( int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate, string ShipPhone, string ShipCity, string BillAddress, string BillName, string BillCity, string BillPhone, string Status)
         {
             Orders order  = new Orders()
             {
@@ -155,7 +155,15 @@ namespace Team7MVC.Controllers
                 ShipAddress= ShipAddress,
                 Freight= Freight,
                 PayWay= PayWay,
-                PayDate= PayDate
+                PayDate= PayDate,
+                ShipPhone= ShipPhone,
+                ShipCity= ShipCity,
+                BillAddress= BillAddress,
+                BillName= BillName,
+                BillCity= BillCity,
+                BillPhone= BillPhone,
+                Status= Status
+                //TotalAmount= TotalAmount
             };
 
             _repo.CreateOrder(order);
@@ -171,7 +179,7 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult OrderEdit(int Id, int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate)
+        public ActionResult OrderEdit(int Id, int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate, string ShipPhone, string ShipCity, string BillAddress, string BillName, string BillCity, string BillPhone, string Status)
         {
             Orders order = new Orders()
             {
@@ -185,7 +193,15 @@ namespace Team7MVC.Controllers
                 ShipAddress = ShipAddress,
                 Freight = Freight,
                 PayWay = PayWay,
-                PayDate = PayDate
+                PayDate = PayDate,
+                ShipPhone = ShipPhone,
+                ShipCity = ShipCity,
+                BillAddress = BillAddress,
+                BillName = BillName,
+                BillCity = BillCity,
+                BillPhone = BillPhone,
+                Status = Status
+                //TotalAmount = TotalAmount
             };
 
             _repo.UpdateOrder(order);
@@ -225,19 +241,21 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult CustomerCreate(int Id, string Account, string CustomerName, string Gender, string Email, string Address, string Phone, decimal TotalCost)
+        public ActionResult CustomerCreate(string Account, string Password, string CustomerName, string Gender, DateTime Birthday, string Email, string Address, string Phone, bool VIP, string Picture, string City)
         {
-            AdminCustomersViewModel customer = new AdminCustomersViewModel()
+            Customers customer = new Customers()
             {
-                CustomerID=Id,
                 Account= Account,
-                
-                CustomerName= CustomerName,
+                Password= Password,
+                CustomerName = CustomerName,
                 Gender= Gender,
-                Email= Email,
+                Birthday= Birthday,
+                Email = Email,
                 Address= Address,
                 Phone= Phone,
-                TotalCost=TotalCost
+                VIP= VIP,
+                Picture= Picture,
+                City= City
             };
 
             _repo.CreateCustomer(customer);
@@ -253,18 +271,22 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult CustomerEdit(int Id, string Account, string CustomerName, string Gender, string Email, string Address, string Phone, decimal TotalCost)
+        public ActionResult CustomerEdit(int Id, string Account, string Password, string CustomerName, string Gender, DateTime Birthday, string Email, string Address, string Phone, bool VIP, string Picture, string City)
         {
-            AdminCustomersViewModel customer = new AdminCustomersViewModel()
+            Customers customer = new Customers()
             {
                 CustomerID = Id,
                 Account = Account,
+                Password = Password,
                 CustomerName = CustomerName,
                 Gender = Gender,
+                Birthday = Birthday,
                 Email = Email,
                 Address = Address,
                 Phone = Phone,
-                TotalCost = TotalCost
+                VIP = VIP,
+                Picture = Picture,
+                City = City
             };
 
             _repo.UpdateCustomer(customer);

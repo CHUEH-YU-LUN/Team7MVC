@@ -38,5 +38,7 @@ namespace Team7MVC.Models
         public bool VIP { get; set; }
         [Display(Name = "圖片")]
         public string Picture { get; set; }
+        [Display(Name = "城市")]
+        public string City { get; set; }
     }
 }

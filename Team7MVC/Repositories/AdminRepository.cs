@@ -149,9 +149,9 @@ namespace Team7MVC.Repositories
         {
             using (conn)
             {
-                string sql = @"insert into Orders (CustomerID,OrderDate,RequiredDate,ShippedDate,ShipperID,ShipName,ShipAddress,Freight,PayWay,PayDate)
-                                values(@CustomerID,@OrderDate,@RequiredDate,@ShippedDate,@ShipperID,@ShipName,@ShipAddress,@Freight,@PayWay,@PayDate);";
-                conn.Execute(sql, new { order.CustomerID,order.OrderDate, order.RequiredDate, order.ShippedDate, order.ShipperID, order.ShipName, order.ShipAddress, order.Freight, order.PayWay, order.PayDate });
+                string sql = @"insert into Orders (CustomerID,OrderDate,RequiredDate,ShippedDate,ShipperID,ShipName,ShipAddress,Freight,PayWay,PayDate,ShipPhone,ShipCity,BillAddress,BillName,BillCity,BillPhone,Status)
+                                values(@CustomerID,@OrderDate,@RequiredDate,@ShippedDate,@ShipperID,@ShipName,@ShipAddress,@Freight,@PayWay,@PayDate,@ShipPhone,@ShipCity,@BillAddress,@BillName,@BillCity,@BillPhone,@Status);";
+                conn.Execute(sql, new { order.CustomerID,order.OrderDate, order.RequiredDate, order.ShippedDate, order.ShipperID, order.ShipName, order.ShipAddress, order.Freight, order.PayWay, order.PayDate, order.ShipPhone, order.ShipCity, order.BillAddress, order.BillName, order.BillCity, order.BillPhone, order.Status });
             }
         }
 
@@ -160,18 +160,25 @@ namespace Team7MVC.Repositories
             using (conn)
             {
                 string sql = @"update Orders
-                                set CustomerID=@CustomerID,
-                                OrderDate=@OrderDate,
-                                RequiredDate=@RequiredDate,
-                                ShippedDate=@ShippedDate,
-                                ShipperID=@ShipperID,
-                                ShipName=@ShipName,
-                                ShipAddress=@ShipAddress,
-                                Freight=@Freight,
-                                PayWay=@PayWay,
-                                PayDate=@PayDate
+                                set CustomerID = @CustomerID,
+                                OrderDate = @OrderDate,
+                                RequiredDate = @RequiredDate,
+                                ShippedDate = @ShippedDate,
+                                ShipperID = @ShipperID,
+                                ShipName = @ShipName,
+                                ShipAddress = @ShipAddress,
+                                Freight = @Freight,
+                                PayWay = @PayWay,
+                                PayDate = @PayDate,
+                                ShipPhone = @ShipPhone,
+                                ShipCity = @ShipCity,
+                                BillAddress = @BillAddress,
+                                BillName = @BillName,
+                                BillCity = @BillCity,
+                                BillPhone = @BillPhone,
+                                Status = @Status
                                 where OrderID = @OrderID";
-                conn.Execute(sql, new { order.CustomerID, order.OrderDate, order.RequiredDate, order.ShippedDate, order.ShipperID, order.ShipName, order.ShipAddress, order.Freight, order.PayWay, order.PayDate, order.OrderID });
+                conn.Execute(sql, new { order.CustomerID, order.OrderDate, order.RequiredDate, order.ShippedDate, order.ShipperID, order.ShipName, order.ShipAddress, order.Freight, order.PayWay, order.PayDate, order.ShipPhone, order.ShipCity, order.BillAddress, order.BillName, order.BillCity, order.BillPhone, order.Status, order.OrderID });
             }
         }
 
@@ -220,43 +227,47 @@ namespace Team7MVC.Repositories
             return customers;
         }
 
-        public AdminCustomersViewModel GetCustomer(int id)
+        public Customers GetCustomer(int id)
         {
-            AdminCustomersViewModel customer;
+            Customers customer;
 
             using (conn)
             {
-                string sql = "select c.CustomerID, c.Account,c.CustomerName, c.Gender, c.Email,c.Address, c.Phone,SUM(ISNULL(od.UnitPrice * od.Quantity,0)) as TotalCost from Customers as c LEFT OUTER JOIN Orders as o on o.CustomerID = c.CustomerID LEFT OUTER JOIN [Order Details] as od on od.OrderID = o.OrderID group by c.CustomerID, c.Account, c.CustomerName, c.Gender, c.Email, c.Address, c.Phone where CustomerID = @CustomerId";
-                customer = conn.QueryFirstOrDefault<AdminCustomersViewModel>(sql, new { CustomerId = id });
+                string sql = "select * from Customers where CustomerID = @CustomerId";
+                customer = conn.QueryFirstOrDefault<Customers>(sql, new { CustomerId = id });
             }
 
             return customer;
         }
 
-        public void CreateCustomer(AdminCustomersViewModel customer)
+        public void CreateCustomer(Customers customer)
         {
             using (conn)
             {
-                string sql = @"insert into Customers (Account,CustomerName,Gender,Email,Address,Phone,TotalCost)
-                                values(@Account,@CustomerName,@Gender,@Email,@Address,@Phone,@TotalCost);";
-                conn.Execute(sql, new { customer.Account, customer.CustomerName, customer.Gender, customer.Email, customer.Address, customer.Phone, customer.TotalCost });
+                string sql = @"insert into Customers (Account,Password,CustomerName,Gender,Birthday,Email,Address,Phone,VIP,Picture,City)
+                                values(@Account,@Password,@CustomerName,@Gender,@Birthday,@Email,@Address,@Phone,@VIP,@Picture,@City);";
+                conn.Execute(sql, new { customer.Account, customer.Password, customer.CustomerName, customer.Gender, customer.Birthday, customer.Email, customer.Address, customer.Phone, customer.VIP, customer.Picture, customer.City });
             }
         }
 
-        public void UpdateCustomer(AdminCustomersViewModel customer)
+        public void UpdateCustomer(Customers customer)
         {
             using (conn)
             {
-                string sql = @"update Products
+                string sql = @"update Customers
                                 set Account=@Account,
+                                Password=@Password,
                                 CustomerName=@CustomerName,
                                 Gender=@Gender,
+                                Birthday=@Birthday,
                                 Email=@Email,
                                 Address=@Address,
                                 Phone=@Phone,
-                                TotalCost=@TotalCost,
+                                VIP=@VIP,
+                                Picture=@Picture,
+                                City=@City
                                 where CustomerID = @CustomerID";
-                conn.Execute(sql, new { customer.Account, customer.CustomerName, customer.Gender, customer.Email, customer.Address, customer.Phone, customer.TotalCost });
+                conn.Execute(sql, new { customer.Account, customer.Password, customer.CustomerName, customer.Gender, customer.Birthday, customer.Email, customer.Address, customer.Phone, customer.VIP, customer.Picture, customer.City ,customer.CustomerID });
             }
         }
 
@@ -264,7 +275,8 @@ namespace Team7MVC.Repositories
         {
             using (conn)
             {
-                string sql = $"select c.CustomerID, c.Account,c.CustomerName, c.Gender, c.Email,c.Address, c.Phone,SUM(ISNULL(od.UnitPrice * od.Quantity,0)) as TotalCost from Customers as c LEFT OUTER JOIN Orders as o on o.CustomerID = c.CustomerID LEFT OUTER JOIN [Order Details] as od on od.OrderID = o.OrderID group by c.CustomerID, c.Account, c.CustomerName, c.Gender, c.Email, c.Address, c.Phone WHERE CustomerID=@CustomerID";
+                string sql = @"delete from Customers
+                                where CustomerID = @CustomerId";
                 conn.Execute(sql, new { CustomerId = Id });
             }
         }

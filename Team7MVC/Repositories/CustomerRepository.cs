@@ -74,9 +74,9 @@ namespace Team7MVC.Repositories
                 //Password = conn.QueryFirstOrDefault<int>(sql, new { customers.Account });
 
                 sql = @"update Customers
-                        set Password =  @newPassword
+                        
                         where Password =  @Password";
-                conn.Execute(sql, new { customers.Password, customers.NewPassword });
+                conn.Execute(sql, new { customers.Password, /*customers.NewPassword*/ });
             }
         }
 

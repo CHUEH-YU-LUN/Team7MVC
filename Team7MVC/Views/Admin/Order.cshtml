@@ -97,6 +97,29 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.PayDate)
                                     </th>
+
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ShipPhone)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ShipCity)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.BillAddress)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.BillName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.BillCity)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.BillPhone)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Status)
+                                    </th>
                                     <th></th>
                                 </tr>
 
@@ -104,45 +127,68 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.OrderID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CustomerID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.OrderDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.RequiredDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ShippedDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ShipperID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ShipName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ShipAddress)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Freight)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PayWay)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PayDate)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("編輯", "OrderEdit", new { id = item.OrderID }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("刪除", "OrderDelete", new { id = item.OrderID }, new { @class = "btn btn-danger" })
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustomerID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RequiredDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShippedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShipperID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShipName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShipAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Freight)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PayWay)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PayDate)
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShipPhone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShipCity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BillAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BillName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BillCity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BillPhone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("編輯", "OrderEdit", new { id = item.OrderID }, new { @class = "btn btn-primary" })
+                                        @Html.ActionLink("刪除", "OrderDelete", new { id = item.OrderID }, new { @class = "btn btn-danger" })
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>
