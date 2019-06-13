@@ -104,7 +104,10 @@
                                 <input type="checkbox" name="check" id="澳洲" value="澳洲">
                                 <label class="label-text" for="澳洲">澳洲</label>
                             </label>
-                            <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
+                            <span>
+                                <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
+
+                            </span>
 
                         </div>
 
@@ -149,7 +152,10 @@
                                 <input type="checkbox" name="check" id="粉紅酒" value="粉紅酒">
                                 <label class="label-text" for="粉紅酒">粉紅酒</label>
                             </label>
-                            <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
+                            <span>
+                                <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
+
+                            </span>
 
 
                         </div>
@@ -235,11 +241,11 @@
                 <div class="product-block">
                     <a href="@Url.Action("ProductDetail","Product" , new { id = item.ProductID })">
                         <div class="product-img">
-                            <img class="picture-wine" src="~/Assets/img_Products/@Html.DisplayFor(modelItem => item.Picture) " alt="p_sherry_oak" title="p_sherry_oak" />
+                            <img class="picture-wine" src="~/Assets/images/img_Products/@Html.DisplayFor(modelItem => item.Picture)" alt="p_sherry_oak" title="p_sherry_oak" />
 
-                            <img class="picture-color" src="~/Assets/img_ProductPage/circle-hover.png">
+                            <img class="picture-color" src="~/Assets/images/img_ProductIndex/circle-hover.png">
 
-                            <img class="picture-nocolor" src="~/Assets/img_ProductPage/circle.jpg">
+                            <img class="picture-nocolor" src="~/Assets/images/img_ProductIndex/circle.jpg">
                         </div>
                     </a>
 
@@ -373,11 +379,11 @@
 
 
             if (
-                $(".product_Category button").is(":visible")) {
+                $(".display_btn").is(":visible")) {
                 $(" .product_Category .product_box6 ").hide();
-                $(".product_Category button").on("click", function () {
+                $(".display_btn ").on("click", function () {
                     $(".product_Category .product_box6").toggle();
-                    $(".product_Category  i").toggleClass("fa-angle-down").toggleClass(" fa-chevron-up");
+                    $(".display_btn i").toggleClass("fa-angle-down").toggleClass(" fa-chevron-up");
                 });
             }
         });
