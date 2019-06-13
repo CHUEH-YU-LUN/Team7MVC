@@ -102,7 +102,7 @@ namespace Team7MVC.Repositories
 
             using (conn)
             {
-                string sql = @"select p.Picture, p.ProductName, p.Year, p.Origin, od.UnitPrice as Price,
+                string sql = @"select p.ProductId, p.Picture, p.ProductName, p.Year, p.Origin, od.UnitPrice as Price,
                                 od.Quantity, (od.UnitPrice * od.Quantity * od.Discount) as TotalCost
                                 from [Order Details] as od
 								INNER JOIN Orders as o on o.OrderID = od.OrderID
