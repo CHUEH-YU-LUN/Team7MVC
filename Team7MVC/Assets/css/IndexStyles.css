@@ -16,7 +16,7 @@ a {
         background: rgba(200, 200, 200, .2);
     }
 
-.container {
+.container other_container {
     max-width: 90%;
     margin: 0 auto 0 30px;
     padding: 0;
