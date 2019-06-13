@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Team7MVC.Repositories;
 using Team7MVC.Models;
 using Team7MVC.ViewModels;
+using System.Net.Mail;
 
 namespace Team7MVC.Controllers
 {
@@ -139,6 +140,33 @@ namespace Team7MVC.Controllers
             var messages = _repo.GetAllMessages();
 
             return View(messages);
+        }
+
+        [HttpGet]
+        public ActionResult ReplyMessage(int id)
+        {
+            var message = _repo.GetMessageById(id);
+            return View(message);
+        }
+
+        [HttpPost]
+        public ActionResult ReplyMessage(int id, string replyContent, string Email)
+        {
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new System.Net.NetworkCredential("z116017z@gmail.com", "Galazy928136+/-"),
+                EnableSsl = true
+            };
+
+            if (replyContent != "")
+            {
+                client.Send("z116017z@gmail.com", Email, "THE MACALLAN", replyContent);
+                return RedirectToAction("Messages");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

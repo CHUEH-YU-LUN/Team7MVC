@@ -158,6 +158,18 @@ namespace Team7MVC.Repositories
             return messages;
         }
 
+        public Messages GetMessageById(int id)
+        {
+            Messages message;
+
+            using (conn)
+            {
+                string sql = "select * from Messages where Id = @MessageId";
+                message = conn.QueryFirstOrDefault<Messages>(sql, new { MessageId = id });
+            }
+            return message;
+        }
+
         #endregion
 
         #region DashBoard資料

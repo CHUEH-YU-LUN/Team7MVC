@@ -56,8 +56,9 @@ a {
     }
 
     .header img {
-        width: 16.875rem;
-        height: 1.875rem;
+        /*width: 16.875rem;*/
+        height: 2rem;
+        margin: 1.25rem;
     }
 
 .fixed-header {
@@ -69,10 +70,12 @@ a {
 .header nav {
     height: 4.5rem;
 }
-/* .page-header #navbarSupportedContent {
-    background-color: rgba(255, 255, 255, .9);
+
+.navbarContentColor {
+    background-color: rgba(255, 255, 255, .95);
     box-shadow: 0 0 5px rgba(15, 15, 15, .3);
-} */
+}
+
 .header .nav-link {
     padding: 0;
     line-height: 4.5rem;
@@ -93,12 +96,12 @@ a {
 }
 
 /* carouselFade */
-.carousel-item img {
-    width: 100vw;
+.carousel-item carousel-img {
+    min-height: 600px;
 }
 
 .carousel-item div {
-    top: 25%;
+    top: 35vh;
     left: 5%;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -119,6 +122,10 @@ a {
 }
 
 /* section */
+.section img {
+    position: relative;
+}
+
 .section div:nth-child(2) {
     max-width: 31.25rem;
 }
