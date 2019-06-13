@@ -14,10 +14,10 @@ namespace Team7MVC.Models
         public string Account { get; set; }
         [Display(Name = "密碼")]
         public string Password { get; set; }
-        [Display(Name = "新密碼")]
-        public string NewPassword { get; set; }
-        [Display(Name = "確認新密碼")]
-        public string ConfirmPassword { get; set; }
+        //[Display(Name = "新密碼")]
+        //public string NewPassword { get; set; }
+        //[Display(Name = "確認新密碼")]
+        //public string ConfirmPassword { get; set; }
         [Display(Name = "名字")]
         public string CustomerName { get; set; }
         [Display(Name = "性別")]
@@ -34,5 +34,7 @@ namespace Team7MVC.Models
         public bool VIP { get; set; }
         [Display(Name = "圖片")]
         public string Picture { get; set; }
+        [Display(Name = "城市")]
+        public string City { get; set; }
     }
 }

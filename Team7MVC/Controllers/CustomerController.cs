@@ -61,7 +61,7 @@ namespace Team7MVC.Controllers
         {
             Customers customers = new Customers()
             {
-                NewPassword = NewPassword,
+                //NewPassword = NewPassword,
                 Password = password
             };
 

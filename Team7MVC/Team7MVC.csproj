@@ -388,6 +388,7 @@
     <Content Include="Views\Admin\OrderCreate.cshtml" />
     <Content Include="Views\Admin\OrderEdit.cshtml" />
     <Content Include="Views\Admin\CustomerCreate.cshtml" />
+    <Content Include="Views\Admin\CustomerEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
