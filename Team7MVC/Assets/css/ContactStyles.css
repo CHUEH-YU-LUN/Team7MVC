@@ -12,7 +12,7 @@ body {
 .full-text {
     padding: 0 2.5rem;
     max-width: 56.25rem;
-    margin: 0 auto 70px;
+    /*margin: 0 auto 70px;*/
 }
 
 p {

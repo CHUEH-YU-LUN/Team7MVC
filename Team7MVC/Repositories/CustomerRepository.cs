@@ -74,9 +74,9 @@ namespace Team7MVC.Repositories
                 //Password = conn.QueryFirstOrDefault<int>(sql, new { customers.Account });
 
                 sql = @"update Customers
-                        
+                        set Password =  @newPassword
                         where Password =  @Password";
-                conn.Execute(sql, new { customers.Password, /*customers.NewPassword*/ });
+                conn.Execute(sql, new { customers.Password, customers.NewPassword });
             }
         }
 
@@ -102,7 +102,7 @@ namespace Team7MVC.Repositories
 
             using (conn)
             {
-                string sql = @"select p.Picture, p.ProductName, p.Year, p.Origin, od.UnitPrice as Price,
+                string sql = @"select p.ProductID, p.Picture, p.ProductName, p.Year, p.Origin, od.UnitPrice as Price,
                                 od.Quantity, (od.UnitPrice * od.Quantity * od.Discount) as TotalCost
                                 from [Order Details] as od
 								INNER JOIN Orders as o on o.OrderID = od.OrderID
