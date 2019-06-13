@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Team7MVC.Models;
+using Team7MVC.ViewModels;
 
 namespace Team7MVC.Repositories
 {
@@ -84,12 +85,47 @@ namespace Team7MVC.Repositories
             List<Orders> orders;
             using (conn)
             {
-                string sql = @"select * from Orders
-                               where CustomerID = (select c.CustomerID from Customers c where Account = @Account)";
+                string sql = @"select o.OrderID, o.OrderDate, o.PayWay, SUM(od.Quantity * od.UnitPrice * od.Discount) as TotalAmount, o.Status
+                               from Orders as o
+                               INNER JOIN [Order Details] as od on od.OrderID = o.OrderID
+                               where o.CustomerID = (select c.CustomerID from Customers c where Account = @Account)
+                               group by o.OrderID, o.OrderDate, o.PayWay, o.Status";
                 orders = conn.Query<Orders>(sql, new { Account = Account }).ToList();
             }
 
             return orders;
+        }
+
+        public List<ShopListsViewModel> QueryOrderDetails(int id)
+        {
+            List<ShopListsViewModel> shopLists;
+
+            using (conn)
+            {
+                string sql = @"select p.Picture, p.ProductName, p.Year, p.Origin, od.UnitPrice as Price,
+                                od.Quantity, (od.UnitPrice * od.Quantity * od.Discount) as TotalCost
+                                from [Order Details] as od
+								INNER JOIN Orders as o on o.OrderID = od.OrderID
+                                INNER JOIN Products as p on p.ProductID = od.ProductID
+                                where o.OrderID = 1";
+                shopLists = conn.Query<ShopListsViewModel>(sql, new { id }).ToList();
+            }
+
+            return shopLists;
+        }
+        
+        public List<ShopListsViewModel> QueryPaywayInfo(string Account)
+        {
+            List<ShopListsViewModel> shopLists;
+
+            using (conn)
+            {
+                string sql = @"select * from CreditCard
+                               where CustomerID = (select CustomerID from Customers where Account = @Account)";
+                shopLists = conn.Query<ShopListsViewModel>(sql, new { Account }).ToList();
+            }
+
+            return shopLists;
         }
     }
 }

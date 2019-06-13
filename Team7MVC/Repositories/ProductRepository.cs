@@ -40,7 +40,7 @@ namespace Team7MVC.Repositories
 
             return products;
         }
-        
+
         public List<Products> GetNewProducts()
         {
             List<Products> products;
@@ -264,6 +264,7 @@ namespace Team7MVC.Repositories
         {
             List<ShopListsViewModel> shopLists;
 
+
             using (conn)
             {
                 string sql = @"select p.ProductID, p.Picture, p.ProductName, p.Year, p.Origin, sh.Price,
@@ -289,32 +290,56 @@ namespace Team7MVC.Repositories
             }
         }
 
-        public void Payment(Orders orders, string Account)
+        public void Payment(PaymentViewModel paymentViewModel, int CustomerID)
         {
             List<ShopLists> shopLists;
             int OrderID = 0;
-            using (conn)
+            //decimal Freight = 100;
+            using (conn = new SqlConnection(connString))
             {
-                string sql = @"insert into Orders (CustomerID, OrderDate, RequiredDate, ShipName,
-					            ShipperID, ShipAddress, Freight, PayWay, PayDate)
-                                values((select CustomerID from Customers where Account = @Account),
-                                @OrderDate, @RequiredDate, @ShipName,@ShipperID, @ShipAddress,
-                                @Freight, @PayWay, @PayDate)";
-                conn.Execute(sql, new { Account, orders.OrderDate, orders.RequiredDate, orders.ShipName, orders.ShipperID, orders.ShipAddress, orders.Freight, orders.PayWay, orders.PayDate });
 
-                sql = @"select OrderID
+                string sql = @"insert into Orders( CustomerID,OrderDate,ShipName,ShipCity,ShipPhone,
+					         ShipperID, ShipAddress, Freight, PayWay, PayDate,BillName,BillAddress,BillCity,BillPhone)
+                             values((select CustomerID from Customers where CustomerID = @CustomerID),
+                             @OrderDate,@ShipName,@ShipperID,@ShipCity,@ShipPhone,@ShipAddress,@Freight, @PayWay, @PayDate,@BillName,@BillAddress,@BillCity,@BillPhone)";
+                conn.Execute(sql, new
+                {
+                    CustomerID,
+                    paymentViewModel.customerPayment.OrderDate,
+                    paymentViewModel.customerPayment.ShipName,
+                    paymentViewModel.customerPayment.ShipCity,
+                    paymentViewModel.customerPayment.ShipPhone,
+                    paymentViewModel.customerPayment.ShipperID,
+                    paymentViewModel.customerPayment.ShipAddress,
+                    paymentViewModel.customerPayment.Freight,
+                    paymentViewModel.customerPayment.PayWay,
+                    paymentViewModel.customerPayment.PayDate,
+                    paymentViewModel.customerPayment.BillName,
+                    paymentViewModel.customerPayment.BillAddress,
+                    paymentViewModel.customerPayment.BillCity,
+                    paymentViewModel.customerPayment.BillPhone
+                });
+
+                sql = @"select OrderID 
                         from Orders as o
                         INNER JOIN Customers as c on c.CustomerID = o.CustomerID
-                        where Account = @Account
+                        where o.CustomerID = @CustomerID
                         order by OrderID Desc";
+                OrderID = conn.QueryFirstOrDefault<int>(sql, new { CustomerID });
 
-                OrderID = conn.QueryFirstOrDefault<int>(sql,new { Account});
+                if (!string.IsNullOrEmpty(paymentViewModel.customerPayment.CreditCardNo) && !string.IsNullOrEmpty(paymentViewModel.customerPayment.CreditCardDate) && paymentViewModel.customerPayment.CreditCardCSC != null && !string.IsNullOrEmpty(paymentViewModel.customerPayment.IdentityCard))
+                {
+                    sql = @"insert into CreditCard(CustomerID,CreditCardNo,CreditCardDate,CreditCardCSC,IdentityCard)
+                        values(@CustomerID,@CreditCardNo,@CreditCardDate,@CreditCardCSC,@IdentityCard)";
+                    conn.Execute(sql, new { CustomerID, paymentViewModel.customerPayment.CreditCardNo, paymentViewModel.customerPayment.CreditCardDate, paymentViewModel.customerPayment.CreditCardCSC, paymentViewModel.customerPayment.IdentityCard });
+                }
 
                 sql = @"select sh.CustomerID, ProductID, Price, Quantity 
                         from ShopLists as sh
                         INNER JOIN Customers as c on c.CustomerID = sh.CustomerID
-                        where Account = @Account";
-                shopLists = conn.Query<ShopLists>(sql, new { Account }).ToList();
+                        where c.CustomerID = @CustomerID";
+
+                shopLists = conn.Query<ShopLists>(sql, new { CustomerID }).ToList();
 
                 sql = @"insert into [Order Details] (OrderID, ProductID, UnitPrice, Quantity,
                         Discount)

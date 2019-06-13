@@ -156,11 +156,13 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MonthSaleViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailViewModel.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ShopListsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\aboutme.css" />
+    <Content Include="Assets\css\bootstrapcheckbox.css" />
     <Content Include="Assets\css\ContactStyles.css" />
     <Content Include="Assets\css\Dashboard\bootstrap.min.css" />
     <Content Include="Assets\css\Dashboard\paper-dashboard.css" />
@@ -171,10 +173,12 @@
     <Content Include="Assets\css\shopping-cart-detail.css" />
     <Content Include="Assets\css\shopping-cart-pay.css" />
     <Content Include="Assets\css\shopping-cart.css" />
+    <Content Include="Assets\css\User\Order_Details.css" />
     <Content Include="Assets\css\User\user_layout.css" />
     <Content Include="Assets\demo\demo.css" />
     <Content Include="Assets\demo\demo.js" />
     <Content Include="Assets\images\img_base\bg_wood.jpg" />
+    <Content Include="Assets\images\img_base\check.jpg" />
     <Content Include="Assets\images\img_base\nav-footer.jpg" />
     <Content Include="Assets\images\img_base\QR_Code.png" />
     <Content Include="Assets\images\img_user\sidebar_background.jpg" />
@@ -396,6 +400,8 @@
     <Content Include="Views\OrderDetail\OrderDetail.cshtml" />
     <Content Include="Views\Customer\ChangePassword.cshtml" />
     <Content Include="Views\Customer\PurchaseList.cshtml" />
+    <Content Include="Views\Customer\Order_Details.cshtml" />
+    <Content Include="Views\Customer\PaywayInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

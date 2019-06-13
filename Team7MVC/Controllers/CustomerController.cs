@@ -60,12 +60,12 @@ namespace Team7MVC.Controllers
         [HttpPost]
         public ActionResult ChangePassword(Customers customers)
         {
-            if (!ModelState.IsValid || customers.Password != customers.Password)
+            if (!ModelState.IsValid || customers.NewPassword != customers.ConfirmPassword)
             {
                 return RedirectToAction("ChangePassword");
 
             }
-            else if (customers.NewPassword == customers.ConfirmPassword)
+            if (customers.NewPassword == customers.ConfirmPassword)
             {
                 _repo.UpdatePassword(customers);
             }
@@ -79,6 +79,19 @@ namespace Team7MVC.Controllers
         {
             var orders = _repo.OrderQuery(User.Identity.Name);
             return View(orders);
+        }
+        [HttpGet]
+        public ActionResult Order_Details(int Id)
+        {
+            var orders_Details = _repo.QueryOrderDetails(Id);
+            return View(orders_Details);
+        }
+
+        [HttpGet]
+        public ActionResult PaywayInfo()
+        {
+            var PaywayInfo = _repo.QueryPaywayInfo(User.Identity.Name);
+            return View(PaywayInfo);
         }
     }
 }
