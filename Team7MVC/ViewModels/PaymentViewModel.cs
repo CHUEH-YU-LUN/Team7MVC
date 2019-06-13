@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -21,9 +22,17 @@ namespace Team7MVC.ViewModels
         public string BillAddress { get; set; }
         public string BillPhone { get; set; }
         public int ShipperID { get; set; }
+
+        [Required]
         public string ShipName { get; set; }
+
+        [RegularExpression(@"^\d{4}\-?\d{3}\-?\d{3}$", ErrorMessage = "需為09xx-xxx-xxx格式")]
         public string ShipPhone { get; set; }
+
+        [Required]
         public string ShipCity { get; set; }
+
+        [Required]
         public string ShipAddress { get; set; }
         public string PayWay { get; set; }
         public decimal Freight { get; set; }

@@ -1,5 +1,17 @@
+/*@font-face {
+    font-family: custom-sans-serif;
+    src: url(), local("微軟正黑體"), local("微軟正黑體");
+    unicode-range: U+4E00-9FFF; /*中文*/
+}
+
+@font-face {
+    font-family: Adobe Garamond Pro;
+    src: local(Adobe Garamond Pro), local(Segoe UI);
+    unicode-range: U+00-024F; /*英文*/
+}*/
+
 body {
-    font-family: adobe-garamond-pro, times new roman;
+    font-family: Adobe Garamond Pro, times new roman,"微軟正黑體";
     text-align: center;
     color: black;
     background: url("../images/img_base/bg_wood.jpg");
@@ -46,10 +58,10 @@ body {
     font-weight: bold;
 }
 
-.nav li a {
-    color: black;
-    padding: 0;
-}
+    .nav li a {
+        color: black;
+        padding: 0;
+    }
 
 .Detail-path ul {
     display: flex;
@@ -58,13 +70,22 @@ body {
     padding: 0;
 }
 
+    .Detail-path ul li {
+        display: flex;
+    }
+
 .Detail-path li a {
     text-decoration: none;
     color: #6a1e28;
 }
 
+    .Detail-path li a:hover {
+        background-color: transparent;
+    }
+
 .Detail-path ul i {
     margin: 0 20px;
+    line-height: 21px;
 }
 
 .Detail-Step {
@@ -75,13 +96,13 @@ body {
     width: 100%;
 }
 
-.Detail table td {
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #e2e2e2;
-    line-height: 2em;
-    font-size: 16px;
-}
+    .Detail table td {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #e2e2e2;
+        line-height: 2em;
+        font-size: 16px;
+    }
 
 .Detail-row td:nth-of-type(8n+1) {
     width: 90px;

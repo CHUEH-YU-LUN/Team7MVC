@@ -18,7 +18,7 @@ a {
 
 .container {
     max-width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 0 30px;
     padding: 0;
 }
 
@@ -103,7 +103,9 @@ a {
 #logo_text {
     font-family: 'Edwardian Script ITC';
 }
-
+.h3-group{
+    margin:12px 0;
+}
 /* carouselFade */
 .carousel-item carousel-img {
     min-height: 600px;

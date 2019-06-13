@@ -12,7 +12,7 @@ body #orderbody {
     margin-top: 6.5%;
 }
 
-.Products-Detail .container {
+    .Products-Detail .container {
         max-width: 1140px;
     }
 
@@ -36,7 +36,7 @@ body #orderbody {
     color: #6a1e28;
 }
 
-.Detail-path li a:hover {
+    .Detail-path li a:hover {
         color: #6a1e28;
     }
 
@@ -90,6 +90,7 @@ label {
     display: flex;
     margin: 30px 0;
     padding: 0;
+    line-height: normal;
 }
 
 .form-check-label {
@@ -110,36 +111,51 @@ label {
     border-color: #c6c6c6;
 }
 
-.form-checkbox:checked {
-    border: none;
-    box-shadow: 0 0 0 10px #862633 inset;
+.form-checkbox {
+    -moz-appearance: none;
+    border: 1px solid #c6c6c6;
 }
 
-    .form-checkbox:checked::after {
-        transform: scale(1);
-        opacity: 1;
+    .form-checkbox:checked {
+        border: none;
+        box-shadow: 0 0 0 10px #862633 inset;
     }
 
-.form-checkbox::after {
+        .form-checkbox:checked::after {
+            transform: scale(1);
+            opacity: 1;
+            width: 10px;
+        }
+
+    /*.form-checkbox::after {
     width: 10px;
     height: 8px;
     margin-left: -5px;
     margin-top: -4px;
-    background-image: url('../images/img_base/check.jpg');
-}
-
-.form-checkbox::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: scale(0.2);
-    transform: scale(0.2);
-    -webkit-transition: all 0.2s ease-in-out 0.1s;
-    transition: all 0.2s ease-in-out 0.1s;
-    opacity: 0;
-}
+    background-image: url('../images/img_base/whilt.png');
+}*/
+    .form-checkbox::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: scale(0.2);
+        transform: scale(0.2);
+        -webkit-transition: all 0.2s ease-in-out 0.1s;
+        transition: all 0.2s ease-in-out 0.1s;
+        opacity: 0;
+        font-family: 'SegoeUISymbolRegular';
+        content: '\2714';
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        font-size: 0.8em;
+        top: 0%;
+        left: 20%;
+        color: white;
+    }
 
 .form-btn {
     text-align: left;
