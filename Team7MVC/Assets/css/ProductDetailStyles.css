@@ -7,10 +7,14 @@ div.product-detail {
 }
 
 .product-image img {
-    height: 80vh;
+    height: 650px;
+    margin-top: 40px;
 }
-
+.product-content {
+    margin-top:40px;
+}
 .product-content .unitPrice {
+    margin-top: 40px;
     padding: 15px 20px;
     background: #fafafa;
 }
@@ -24,6 +28,10 @@ div.product-detail {
     color: #4d4d4d;
 }
 
+    .product-content .name {
+        font-family: "Times New Roman","微軟正黑體"
+    }
+
 .product-content div {
     font-size: 18px;
     color: #4d4d4d;
@@ -35,4 +43,24 @@ div.product-detail {
 
 .product-content button {
     background: #862633;
+}
+
+
+.product-detail .introduction  h2{
+    font-family: "Times New Roman","微軟正黑體"
+}
+.product-detail .introduction div {
+    font-family: "Times New Roman","微軟正黑體"
+}
+
+.product_row h2{
+    font-family: "Times New Roman","微軟正黑體"
+}
+
+.product_row div {
+    font-family: "Times New Roman","微軟正黑體"
+}
+
+.productdetail_box .card{
+    margin-top:10px;
 }
