@@ -14,11 +14,13 @@ body #orderbody {
 
     .Products-Detail .container {
         max-width: 1140px;
+        margin: 0 auto !important;
     }
 
 .pay-main .container {
     display: flex;
     max-width: 1140px;
+    margin: 0 auto !important;
 }
 
 .Paymentheader {
@@ -43,9 +45,9 @@ body #orderbody {
 .pay-main-left {
     flex-direction: column;
     
-    padding-right: 6%;
+    /*padding-right: 6%;*/
     float: left;
-}*/
+}
 
 .pay-main h2 {
     font-size: 1.48em;
@@ -90,7 +92,8 @@ label {
     display: flex;
     margin: 30px 0;
     padding: 0;
-    line-height: normal;
+  
+    line-height: 20px;
 }
 
 .form-check-label {
@@ -486,7 +489,7 @@ th:first-child {
 
 .order-summary-emphasis {
     font-size: 1.1rem;
-    font-weight: 700;
+   
 }
 
 .total-line:first-child th,
