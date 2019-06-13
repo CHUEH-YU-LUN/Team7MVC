@@ -145,7 +145,7 @@ dl a {
     display: none;
 }
 
-.product_Category button {
+.display_btn {
     display: none;
 }
 /*@media screen and (max-width: 960px) {
@@ -573,18 +573,44 @@ dl a {
     }
 }
 
-@media screen and (max-width: 411px) {
+@media screen and (max-width: 500px) {
+    .product-img .picture-wine {
+        height: 280px;
+        margin-top: 20px;
+        position: absolute;
+    }
+
+    .product-block .product-intro {
+        margin-left: 10px;
+        margin-top: -60px;
+    }
+
+    .picture-color {
+        width: 310px;
+        margin-top: 15px;
+        position: absolute;
+    }
+
+    .picture-nocolor {
+        width: 310px;
+        margin-top: 15px;
+    }
+    .product-block {
+        width:300px;
+        width:100%;
+        
+    }
 
     .product_box {
-        display: none;
+        margin: 0 auto;
     }
 
     .product-menu {
         position: relative;
-        width: 3000px;
+        width: 350px;
         z-index: 2;
         margin: 0 auto;
-        top: -80px;
+        top: -150px;
     }
 
     .product_title {
@@ -596,7 +622,7 @@ dl a {
         }
 
     .product_btn {
-        width: 300px;
+        width: 350px;
         width: 100%;
         text-align: left;
         display: block;
@@ -611,7 +637,167 @@ dl a {
         display: block;
         background: #fff;
         border: none;
-        width:300px;
+        width: 100%;
+        height: 40px;
+        font-size: 40px;
+        color: #603f46;
+        flex-wrap: nowrap;
+    }
+
+    .product-menu i {
+        margin-left: 5px;
+    }
+
+ 
+
+
+    .product_Category {
+        margin: 0 auto;
+    }
+
+    .product_Category {
+        position: relative;
+        width: 350px;
+        z-index: 2;
+        margin: 0 auto;
+        top: -150px;
+    }
+
+    .product_title {
+        text-align: left;
+    }
+
+        .product_title h3 {
+            display: none;
+        }
+
+    .product_btn {
+        width: 350px;
+        width: 100%;
+        text-align: left;
+        display: block;
+        background: #fff;
+        border: none;
+        width: 100%;
+        height: 30px;
+    }
+
+    .product_Category button {
+        display: inline-block;
+        display: block;
+        background: #fff;
+        border: none;
+        width: 100%;
+        height: 30px;
+        font-size: 40px;
+        color: #603f46;
+        flex-wrap: nowrap;
+    }
+
+    .product_Category i {
+        margin-left: 5px;
+    }
+
+    .product_Category .product_box6 {
+        width: 350px;
+        margin: 0 auto;
+        background: #fff;
+        text-align: center;
+    }
+
+    .product_box6 {
+        width: 350px;
+        border-top: 1px solid #eee;
+        background: none;
+        text-indent: 0;
+        line-height: 30px;
+        padding: 20px 0;
+    }
+
+
+        .product_box6 h3 {
+            text-align: left;
+        }
+
+        .product_box6 form-check {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            display: block;
+            padding: 0;
+        }
+
+    .product_box7 {
+        margin: 0 auto;
+    }
+    col-2 pl-4 grid_9 alpha{
+        display:none;
+    }
+}
+
+
+@media screen and (max-width: 411px) {
+    .product-img .picture-wine {
+        height: 295px;
+        margin-top: 20px;
+        margin-left: -10px;
+        position: absolute;
+    }
+
+    .product-block .product-intro {
+        margin-left: -5px;
+        margin-top: -60px;
+    }
+
+    .picture-color {
+        width: 310px;
+        margin-top: 15px;
+        margin-left:-5px;
+        position: absolute;
+    }
+
+    .picture-nocolor {
+        margin-left: -5px;
+        width: 310px;
+        margin-top: 15px;
+    }
+    .product_box {
+        display: none;
+    }
+
+    .product-menu {
+        position: relative;
+        width: 350px;
+        z-index: 2;
+        margin: 0 auto;
+        top: -70px;
+    }
+
+    .product_title {
+        text-align: left;
+    }
+
+        .product_title h3 {
+            display: none;
+        }
+
+    .product_btn {
+        width: 350px;
+        width: 100%;
+        text-align: left;
+        display: block;
+        background: #fff;
+        border: none;
+        width: 100%;
+        height: 40px;
+    }
+
+    .product-menu button {
+        display: inline-block;
+        display: block;
+        background: #fff;
+        border: none;
+        width:350px;
         width: 80%d;
         height: 40px;
         font-size: 40px;
@@ -622,148 +808,10 @@ dl a {
     .product-menu i {
         margin-left: 5px;
     }
-
-    .product_box {
-        top: 10px;
+    .product-block{
+        margin-left:50px;
     }
-
-
-
-    .product_Category {
-        margin: 0 auto;
-    }
-
-    .product_Category {
-        position: relative;
-        width: 300px;
-        z-index: 2;
-        margin: 0 auto;
-        top: -70px;
-    }
-
-    .product_title {
-        text-align: left;
-    }
-
-        .product_title h3 {
-            display: none;
-        }
-
-    .product_btn {
-        width: 300px;
-        width: 100%;
-        text-align: left;
-        display: block;
-        background: #fff;
-        border: none;
-        width: 100%;
-        height: 40px;
-    }
-
-    .product_Category button {
-        display: inline-block;
-        display: block;
-        background: #fff;
-        border: none;
-        width: 100%;
-        height: 40px;
-        font-size: 40px;
-        color: #603f46;
-        flex-wrap: nowrap;
-    }
-
-    .product_Category i {
-        margin-left: 5px;
-    }
-
-    .product_Category .product_box6 {
-        width: 300px;
-        margin: 0 auto;
-        background: #fff;
-        text-align: center;
-    }
-
-    .product_box6 {
-        width: 300px;
-        border-top: 1px solid #eee;
-        background: none;
-        text-indent: 0;
-        line-height: 30px;
-        padding: 20px 0;
-    }
-
-
-        .product_box6 h3 {
-            text-align: left;
-        }
-
-        .product_box6 form-check {
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-            display: block;
-            padding: 0;
-        }
-
-    .product_box7 {
-        margin: 0 auto;
-    }
-}
-
-@media screen and (max-width: 360px) {
    
-    .product_box {
-        display:none;
-    }
-
-    .product-menu {
-        position: relative;
-        width: 280px;
-        z-index: 2;
-        margin: 0 auto;
-        top: -80px;
-    }
-
-    .product_title {
-        text-align: left;
-    }
-
-        .product_title h3 {
-            display: none;
-        }
-
-    .product_btn {
-        width: 280px;
-        width: 100%;
-        text-align: left;
-        display: block;
-        background: #fff;
-        border: none;
-        width: 100%;
-        height: 40px;
-    }
-
-    .product-menu button {
-        display: inline-block;
-        display: block;
-        background: #fff;
-        border: none;
-        width: 100%;
-        height: 40px;
-        font-size: 40px;
-        color: #603f46;
-        flex-wrap: nowrap;
-    }
-
-    .product-menu i {
-        margin-left: 5px;
-    }
-
-    .product_box {
-        top: 10px;
-    }
-
-
 
     .product_Category {
         margin: 0 auto;
@@ -771,7 +819,7 @@ dl a {
 
     .product_Category {
         position: relative;
-        width: 280px;
+        width: 350px;
         z-index: 2;
         margin: 0 auto;
         top: -70px;
@@ -786,7 +834,7 @@ dl a {
         }
 
     .product_btn {
-        width: 280px;
+        width: 350px;
         width: 100%;
         text-align: left;
         display: block;
@@ -813,14 +861,14 @@ dl a {
     }
 
     .product_Category .product_box6 {
-        width: 280px;
+        width: 350px;
         margin: 0 auto;
         background: #fff;
         text-align: center;
     }
 
     .product_box6 {
-        width: 280px;
+        width: 400px;
         border-top: 1px solid #eee;
         background: none;
         text-indent: 0;
@@ -844,4 +892,6 @@ dl a {
     .product_box7 {
         margin: 0 auto;
     }
+ 
 }
+
