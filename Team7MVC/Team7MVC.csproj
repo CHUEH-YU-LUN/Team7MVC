@@ -162,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\aboutme.css" />
+    <Content Include="Assets\css\bootstrapcheckbox.css" />
     <Content Include="Assets\css\ContactStyles.css" />
     <Content Include="Assets\css\Dashboard\bootstrap.min.css" />
     <Content Include="Assets\css\Dashboard\paper-dashboard.css" />
