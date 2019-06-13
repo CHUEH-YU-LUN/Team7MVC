@@ -10,6 +10,7 @@ using System.Net.Mail;
 
 namespace Team7MVC.Controllers
 {
+    [Authorize(Users = "Admin")]
     public class AdminController : Controller
     {
         public readonly AdminRepository _repo;

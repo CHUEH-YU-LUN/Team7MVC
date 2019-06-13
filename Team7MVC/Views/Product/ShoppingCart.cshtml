@@ -19,8 +19,8 @@
     <div class="container">
         <div class="Detail-path">
             <ul class="path">
-                <li >
-                    <a href="#">Basket</a><i class="fas fa-chevron-right" "></i>
+                <li>
+                    <a href="#">Basket</a><i class="fas fa-chevron-right"></i>
                 </li>
                 <li>
                     Information<i class="fas fa-chevron-right"></i>
@@ -44,65 +44,66 @@
     </div> -->
     <div class="Detail">
         <div class="container">
-
-            <table>
-                <tr class="Detail-row">
-                    <td class="Detail-table-title">序</td>
-                    <td class="Detail-table-title">商品名稱</td>
-                    <td class="Detail-table-title">年份</td>
-                    <td class="Detail-table-title">產地</td>
-                    <td class="Detail-table-title">單價</td>
-                    <td class="Detail-table-title">數量</td>
-                    <td class="Detail-table-title">小計</td>
-                    <td class="Detail-table-title">刪除</td>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    @*@Html.Partial("ShoppingCartPartial")*@
-                    <tr>
-                        <!-- <td colspan="8" class="Detail-table-row">您的清單內目前沒有任何商品</td> -->
-                        <td class="Detail-table-title">@count</td>
-                        @{ count++;}
-                        <td class="product-name">
-                            <a href="@Url.Action("ProductDetail","Product" , new { id = item.ProductId })">
-                                <img src="~/Assets/images/img_Products/@Html.DisplayFor(modelItem => item.Picture)" alt="商品" />
-
-                                @Html.DisplayFor(modelItem => item.ProductName)
-                            </a>
-                        </td>
-                        <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.Year)</td>
-                        <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.Origin)</td>
-                        <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.Price)</td>
-                        <td class="Detail-table-title">
-                            <select class="custom-select" id="inputGroupSelect01" name="orderQty">
-                                <option value="00" hidden>@Html.DisplayFor(modelItem => item.Quantity)</option>
-                                @for (int i = 1; i <= item.Stock; i++)
-                                {
-                                    <option>@i </option>
-                                }
-                            </select>
-                        </td>
-                        <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.TotalCost)</td>
-                        <td class="Detail-table-title">
-                            <a href="@Url.Action("DeleteShoppingCartProduct","Product" , new { ProductID = item.ProductId })" style="color:black">
-                                <i class="far fa-trash-alt"></i>
-                            </a>
-                        </td>
+            @using (Html.BeginForm())
+            {
+                <table>
+                    <tr class="Detail-row">
+                        <td class="Detail-table-title">序</td>
+                        <td class="Detail-table-title">商品名稱</td>
+                        <td class="Detail-table-title">年份</td>
+                        <td class="Detail-table-title">產地</td>
+                        <td class="Detail-table-title">單價</td>
+                        <td class="Detail-table-title">數量</td>
+                        <td class="Detail-table-title">小計</td>
+                        <td class="Detail-table-title">刪除</td>
                     </tr>
-                }
-                <tr class="Detail-price">
-                    <td colspan="6">商品金額總計</td>
-                    <td>@SumMoney</td>
-                    <td></td>
-                </tr>
-            </table>
-            <div class="Detail-btn text-center">
-                @using (Html.BeginForm())
-                {
+
+
+                    @foreach (var item in Model)
+                    {
+                        @*@Html.Partial("ShoppingCartPartial")*@
+                        <tr>
+                            <!-- <td colspan="8" class="Detail-table-row">您的清單內目前沒有任何商品</td> -->
+                            <td class="Detail-table-title">@count</td>
+                            @{ count++;}
+                            <td class="product-name">
+                                <a href="@Url.Action("ProductDetail", "Product", new { id = item.ProductId })">
+                                    <img src="~/Assets/images/img_Products/@Html.DisplayFor(modelItem => item.Picture)" alt="商品" />
+
+                                    @Html.DisplayFor(modelItem => item.ProductName)
+                                </a>
+                            </td>
+                            <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.Year)</td>
+                            <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.Origin)</td>
+                            <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.Price)</td>
+                            <td class="Detail-table-title">
+                                <select class="custom-select" id="inputGroupSelect01" name="orderQty">
+                                    <option value="@Html.DisplayFor(modelItem => item.Quantity)" hidden>@Html.DisplayFor(modelItem => item.Quantity)</option>
+                                    @for (int i = 1; i <= item.Stock; i++)
+                                    {
+                                        <option value="@i">@i </option>
+                                    }
+                                </select>
+                            </td>
+                            <td class="Detail-table-title">@Html.DisplayFor(modelItem => item.TotalCost)</td>
+                            <td class="Detail-table-title">
+                                <a href="@Url.Action("DeleteShoppingCartProduct", "Product", new { ProductID = item.ProductId })" style="color:black">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                    <tr class="Detail-price">
+                        <td colspan="6">商品金額總計</td>
+                        <td>@SumMoney</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div class="Detail-btn text-center">
                     <input type="submit" class="btn btn-light" value="CheckOut" />
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
 
