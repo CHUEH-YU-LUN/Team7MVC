@@ -181,6 +181,7 @@
     <Content Include="Assets\images\img_base\check.jpg" />
     <Content Include="Assets\images\img_base\nav-footer.jpg" />
     <Content Include="Assets\images\img_base\QR_Code.png" />
+    <Content Include="Assets\images\img_base\whilt.png" />
     <Content Include="Assets\images\img_user\sidebar_background.jpg" />
     <Content Include="Assets\images\img_base\title_icon.png" />
     <Content Include="Assets\images\img_Index\bruno-martins-442161-unsplash.jpg" />
