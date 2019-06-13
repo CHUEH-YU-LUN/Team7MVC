@@ -46,7 +46,7 @@ namespace Team7MVC.Models
         public string BillPhone { get; set; }
         [Display(Name = "訂單狀態")]
         public string Status { get; set; }
-        //[Display(Name = "訂單總金額")]
-        //public string TotalAmount { get; set; }
+        [Display(Name = "訂單總金額")]
+        public string TotalAmount { get; set; }
     }
 }

@@ -107,7 +107,7 @@ namespace Team7MVC.Repositories
                                 from [Order Details] as od
 								INNER JOIN Orders as o on o.OrderID = od.OrderID
                                 INNER JOIN Products as p on p.ProductID = od.ProductID
-                                where o.OrderID = 1";
+                                where o.OrderID = @id";
                 shopLists = conn.Query<ShopListsViewModel>(sql, new { id }).ToList();
             }
 

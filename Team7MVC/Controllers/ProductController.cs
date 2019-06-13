@@ -176,6 +176,7 @@ namespace Team7MVC.Controllers
             return View(product);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult ProductDetail(int ProductId, int buyQty)
         {
