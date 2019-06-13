@@ -128,7 +128,7 @@ label {
     height: 8px;
     margin-left: -5px;
     margin-top: -4px;
-    background-image: url('~/Assets/images/img_base/check.jpg');
+    background-image: url('../images/img_base/check.jpg');
 }
 
 .form-checkbox::after {
