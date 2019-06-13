@@ -343,5 +343,55 @@ namespace Team7MVC.Controllers
 
             return RedirectToAction("OrderDetail", "OrderDetail");
         }
+
+        public ActionResult GetRedWine()
+        {
+            List<Products> products;
+
+            products = _repo.GetProducts(new string[] { "紅酒"}, 2);
+
+            ViewData.Model = products;
+            return View("Index");
+        }
+
+        public ActionResult GetWhiteSpirit()
+        {
+            List<Products> products;
+
+            products = _repo.GetProducts(new string[] { "白酒" }, 2);
+
+            ViewData.Model = products;
+            return View("Index");
+        }
+
+        public ActionResult GetMulledWine()
+        {
+            List<Products> products;
+
+            products = _repo.GetProducts(new string[] { "甜酒/貴腐酒" }, 2);
+
+            ViewData.Model = products;
+            return View("Index");
+        }
+
+        public ActionResult GetChampagne()
+        {
+            List<Products> products;
+
+            products = _repo.GetProducts(new string[] { "氣泡酒 / 微氣泡 / 香檳" }, 2);
+
+            ViewData.Model = products;
+            return View("Index");
+        }
+
+        public ActionResult GetPinkWine()
+        {
+            List<Products> products;
+
+            products = _repo.GetProducts(new string[] { "粉紅酒" }, 2);
+
+            ViewData.Model = products;
+            return View("Index");
+        }
     }
 }
