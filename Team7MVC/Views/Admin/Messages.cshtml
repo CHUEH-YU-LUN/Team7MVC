@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Team7MVC.Models.Messages>
+﻿@model IEnumerable<Team7MVC.ViewModels.AdminMessagesViewModel>
 
 @{
     ViewBag.Title = "Messages Management";
@@ -9,19 +9,35 @@
         <div class="col-md-12">
             <div class="d-flex justify-content-between">
                 <div class="d-inline tool-left">
-                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        訊息排序
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">ID</a>
-                        <a class="dropdown-item" href="#">問題種類</a>
-                        <a class="dropdown-item" href="#">訊息日期</a>
-                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="submit" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                排序方式
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <button class="dropdown-item" id="SortBy" name="SortBy" value="Id">訊息編號</button>
+                                <button class="dropdown-item" id="SortBy" name="SortBy" value="QuestionCategory">問題總類</button>
+                                <button class="dropdown-item" id="SortBy" name="SortBy" value="Datetime">訊息日期</button>
+                            </div>
+                        </div>
+                    }
+                    @*<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            訊息排序
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">ID</a>
+            <a class="dropdown-item" href="#">問題種類</a>
+            <a class="dropdown-item" href="#">訊息日期</a>
+        </div>*@
                 </div>
                 <div class="d-inline tool-right">
                     @*<i class="fas fa-plus"></i>*@
-                    @Html.ActionLink("新增訊息", "MessageCreate", "", new { @class = "btn btn-success" })
+                    @*@Html.ActionLink("<i class='fas fa - redo - alt'></i>", "Messages", "", new { @class = "btn btn-success" })*@
+                    <button onClick="document.location.reload()" class="btn btn-success" type="button">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
                 </div>
             </div>
             <div class="card">
@@ -39,12 +55,6 @@
                                         @Html.DisplayNameFor(model => model.Name)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Email)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Phone)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.QuestionCategory)
                                     </th>
                                     <th>
@@ -53,6 +63,9 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Datetime)
                                     </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Status)
+                                    </th>
                                     <th></th>
                                 </tr>
 
@@ -60,34 +73,31 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Id)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Email)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Phone)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.QuestionCategory)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Comments)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Datetime)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("回覆", "ReplyMessage", new { id = item.Id }, new { @class = "btn btn-primary" })
-                                            @*<a class="btn btn-primary"></a>*@
-                                            @Html.ActionLink("完成", "Compleate", new { id = item.Id }, new { @class = "btn btn-danger" })
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td class="text-center" style="width:200px;">
+                                        @Html.DisplayFor(modelItem => item.QuestionCategory)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comments)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.Datetime)
+                                    </td>
+                                    <td class="text-center" style="width:80px;">
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("回覆", "ReplyMessage", new { id = item.Id }, new { @class = "btn btn-primary" })
+                                        @*<a class="btn btn-primary"></a>*@
+                                        @*@Html.ActionLink("完成", "Compleate", new { id = item.Id }, new { @class = "btn btn-danger" })*@
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

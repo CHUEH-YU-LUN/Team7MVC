@@ -153,6 +153,8 @@
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\WineRepository.cs" />
     <Compile Include="ViewModels\AdminCustomersViewModel.cs" />
+    <Compile Include="ViewModels\AdminMessagesViewModel.cs" />
+    <Compile Include="ViewModels\AdminOrdersViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MonthSaleViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailViewModel.cs" />
@@ -181,7 +183,8 @@
     <Content Include="Assets\images\img_base\check.jpg" />
     <Content Include="Assets\images\img_base\nav-footer.jpg" />
     <Content Include="Assets\images\img_base\QR_Code.png" />
-    <Content Include="Assets\images\img_base\whilt.png" />
+    <Content Include="Assets\images\img_Products\31.jpg" />
+	<Content Include="Assets\images\img_base\whilt.png" />
     <Content Include="Assets\images\img_user\sidebar_background.jpg" />
     <Content Include="Assets\images\img_base\title_icon.png" />
     <Content Include="Assets\images\img_Index\bruno-martins-442161-unsplash.jpg" />
@@ -402,7 +405,12 @@
     <Content Include="Views\Customer\PurchaseList.cshtml" />
     <Content Include="Views\Customer\Order_Details.cshtml" />
     <Content Include="Views\Customer\PaywayInfo.cshtml" />
-    <Content Include="Views\Product\Payment.cshtml" />
+    <Content Include="Views\Admin\OrderReadOnly.cshtml" />
+    <Content Include="Views\Admin\ReplyMessage.cshtml" />
+    <Content Include="Views\Admin\OrderEdit.cshtml" />
+    <Content Include="Views\Admin\ProductReadOnly.cshtml" />
+    <Content Include="Views\Admin\CustomerReadOnly.cshtml" />
+	<Content Include="Views\Product\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

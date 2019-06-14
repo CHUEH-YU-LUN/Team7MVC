@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Team7MVC.Models.Orders>
+﻿@model IEnumerable<Team7MVC.ViewModels.AdminOrdersViewModel>
 
 @{
     ViewBag.Title = "Orders Management";
@@ -36,6 +36,9 @@
                 <div class="d-inline tool-right">
                     @*<i class="fas fa-plus"></i>*@
                     @Html.ActionLink("新增訂單", "OrderCreate", "", new { @class = "btn btn-success" })
+                    <button onClick="document.location.reload()" class="btn btn-success" type="button">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
                 </div>
             </div>
             <div class="card">
@@ -80,42 +83,10 @@
                                         @Html.DisplayNameFor(model => model.ShippedDate)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ShipperID)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.ShipName)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ShipAddress)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Freight)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.PayWay)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.PayDate)
-                                    </th>
-
-
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ShipPhone)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ShipCity)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.BillAddress)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.BillName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.BillCity)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.BillPhone)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Status)
@@ -128,64 +99,32 @@
                                 @foreach (var item in Model)
                                 {
                                 <tr>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.OrderID)
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.CustomerID)
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.OrderDate)
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.RequiredDate)
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.ShippedDate)
                                     </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ShipperID)
-                                    </td>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.ShipName)
                                     </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ShipAddress)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Freight)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PayWay)
-                                    </td>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.PayDate)
                                     </td>
-
-
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ShipPhone)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ShipCity)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.BillAddress)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.BillName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.BillCity)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.BillPhone)
-                                    </td>
-                                    <td>
+                                    <td class="text-center">
                                         @Html.DisplayFor(modelItem => item.Status)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("編輯", "OrderEdit", new { id = item.OrderID }, new { @class = "btn btn-primary" })
+                                        @Html.ActionLink("檢視", "OrderReadOnly", new { id = item.OrderID }, new { @class = "btn btn-primary" })
                                         @Html.ActionLink("刪除", "OrderDelete", new { id = item.OrderID }, new { @class = "btn btn-danger" })
                                     </td>
                                 </tr>

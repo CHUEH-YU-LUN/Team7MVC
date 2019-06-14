@@ -28,5 +28,8 @@ namespace Team7MVC.Models
 
         [Required]
         public DateTime Datetime { get; set; }
+
+        [Required]
+        public  String Status { get; set; }
     }
 }

@@ -21,9 +21,9 @@ namespace Team7MVC.Models
         public DateTime ShippedDate { get; set; }
         [Display(Name = "發貨ID")]
         public int ShipperID { get; set; }
-        [Display(Name = "收貨人")]
+        [Display(Name = "訂購人")]
         public string ShipName { get; set; }
-        [Display(Name = "收貨地址")]
+        [Display(Name = "訂購人地址")]
         public string ShipAddress { get; set; }
         [Display(Name = "運費")]
         public decimal Freight { get; set; }
@@ -32,9 +32,9 @@ namespace Team7MVC.Models
         [Display(Name = "付款日期")]
         public DateTime PayDate { get; set; }
 
-        [Display(Name = "寄件人電話")]
+        [Display(Name = "訂購人電話")]
         public string ShipPhone { get; set; }
-        [Display(Name = "寄件人城市")]
+        [Display(Name = "訂購人城市")]
         public string ShipCity { get; set; }
         [Display(Name = "收件人地址")]
         public string BillAddress { get; set; }

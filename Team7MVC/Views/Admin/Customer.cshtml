@@ -58,15 +58,15 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Gender)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Email)
-                                    </th>
+                                    </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Address)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Phone)
-                                    </th>
+                                    </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.TotalCost)
                                     </th>
@@ -89,21 +89,21 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Gender)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Email)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Address)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Phone)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.TotalCost)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("編輯", "CustomerEdit", new { id = item.CustomerID }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("刪除", "CustomerDelete", new { id = item.CustomerID }, new { @class = "btn btn-danger" })
+                                            @Html.ActionLink("檢視", "CustomerReadOnly", new { id = item.CustomerID }, new { @class = "btn btn-primary" })
+                                            @Html.ActionLink("停用", "CustomerDelete", new { id = item.CustomerID }, new { @class = "btn btn-danger" })
                                         </td>
                                     </tr>
                                 }
