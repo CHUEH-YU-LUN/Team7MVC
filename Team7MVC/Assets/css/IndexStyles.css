@@ -5,6 +5,22 @@ html {
     color: #000;
 }
 
+@font-face {
+    font-family: ChineseFont;
+    src: local("微軟正黑體");
+    unicode-range: U+4E00-9FFF;
+}
+
+@font-face {
+    font-family: ChineseFont;
+    src: local(Times), local(Times New Roman);
+    unicode-range: U+00-024F;
+}
+
+body {
+    font-family: ChineseFont, sans-serif;
+}
+
 a {
     text-decoration: none;
     color: #fff
@@ -112,8 +128,9 @@ a {
 }
 
 .carousel-item div {
-    top: 35vh;
+    top: 50%;
     left: 5%;
+    margin-top: -150px;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     text-shadow: rgba(0,0,0,.8) 0 0 8px;
@@ -137,12 +154,28 @@ a {
     position: relative;
 }
 
+.section .order3 {
+    height: 338px;
+}
+
+.section .order2 {
+    height: 438px;
+}
+
+.section .order1 {
+    height: 558px;
+}
+
 .section div:nth-child(2) {
     max-width: 31.25rem;
 }
 
 .section p:first-child {
     font-size: 1.5rem;
+}
+
+.section h2 {
+    font-size: 1.875rem;
 }
 
 .section p:nth-child(3) {
@@ -201,6 +234,18 @@ a {
         max-width: 31.25rem;
     }
 
+.special p {
+    font-size: 1.5rem;
+}
+
+.special h2 {
+    font-size: 1.875rem;
+}
+
+.special p:nth-child(3) {
+    font-size: 1.25rem;
+}
+
 /* footer */
 .page-footer {
     background-color: #1a1a1a;
@@ -218,6 +263,10 @@ a {
 
     .footer-email p {
         font-size: 1.25rem;
+    }
+
+    .footer-email .sub-email {
+        width: 26rem;
     }
 
     .footer-email input {
@@ -262,4 +311,221 @@ a {
     background: black;
     width: 100%;
     height: 5vh;
+}
+
+@media only screen and (max-width: 1200px) {
+    /* carouselFade */
+    .carousel-item p:first-child {
+        font-size: 1.35rem;
+    }
+
+    .carousel-item h2 {
+        font-size: 1.6875rem;
+    }
+
+    .carousel-item p:nth-child(3) {
+        font-size: 1.125rem;
+    }
+
+    /* section */
+    .section p:first-child {
+        font-size: 1.35rem;
+    }
+
+    .section h2 {
+        font-size: 1.6875rem;
+    }
+
+    .section p:nth-child(3) {
+        font-size: 1.125rem;
+    }
+
+    /* introduction */
+    .introduction p {
+        font-size: 1.35rem;
+    }
+
+    .introduction h2 {
+        font-size: 1.6875rem;
+    }
+
+    .introduction p:nth-child(3) {
+        font-size: 1.125rem;
+    }
+
+    /* special */
+    .special p {
+        font-size: 1.35rem;
+    }
+
+    .special h2 {
+        font-size: 1.6875rem;
+    }
+
+    .special p:nth-child(3) {
+        font-size: 1.125rem;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    /* carouselFade */
+    .carousel-item div {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        max-width: 25rem;
+    }
+
+    .carousel-item p:first-child {
+        font-size: 1.2rem;
+    }
+
+    .carousel-item h2 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-item p:nth-child(3) {
+        font-size: 1rem;
+    }
+
+    /* section */
+    .section p:first-child {
+        font-size: 1.2rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .section p:nth-child(3) {
+        font-size: 1rem;
+    }
+
+    /* introduction */
+    .introduction p {
+        font-size: 1.2rem;
+    }
+
+    .introduction h2 {
+        font-size: 1.5rem;
+    }
+
+    .introduction p:nth-child(3) {
+        font-size: 1rem;
+    }
+
+    /* special */
+    .special p {
+        font-size: 1.2rem;
+    }
+
+    .special h2 {
+        font-size: 1.5rem;
+    }
+
+    .special p:nth-child(3) {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* introduction */
+    .introduction .card-3 div {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    /* carouselFade */
+    .carousel-item div {
+        right: 15%;
+        top: 40%;
+        left: 15%;
+        margin-top: auto;
+        text-shadow: rgba(0,0,0,.8) 0 0 8px;
+        max-width: none;
+    }
+
+    /* section */
+    .section .order3 {
+        height: 236px;
+    }
+
+    .section .order2 {
+        height: 306px;
+    }
+
+    .section .order1 {
+        height: 390px;
+    }
+
+    /* footer */
+    .footer-email p {
+        font-size: 1rem;
+    }
+
+    .footer-email .sub-email {
+        width: auto;
+    }
+
+    .footer-menu a {
+        font-size: .5rem;
+    }
+
+    .footer-share div {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    /* carouselFade */
+    .carousel-item p:first-child {
+        font-size: .9rem;
+    }
+
+    .carousel-item h2 {
+        font-size: 1.125rem;
+    }
+
+    .carousel-item p:nth-child(3) {
+        font-size: .75rem;
+    }
+
+    /* section */
+    .section p:first-child {
+        font-size: .9rem;
+    }
+
+    .section h2 {
+        font-size: 1.125rem;
+    }
+
+    .section p:nth-child(3) {
+        font-size: .75rem;
+    }
+
+    /* introduction */
+    .introduction p {
+        font-size: .9rem;
+    }
+
+    .introduction h2 {
+        font-size: 1.125rem;
+    }
+
+    .introduction p:nth-child(3) {
+        font-size: .75rem;
+    }
+
+    /* special */
+    .special p {
+        font-size: .9rem;
+    }
+
+    .special h2 {
+        font-size: 1.125rem;
+    }
+
+    .special p:nth-child(3) {
+        font-size: .75rem;
+    }
 }
