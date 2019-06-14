@@ -34,5 +34,7 @@ namespace Team7MVC.Models
         public string Introduction { get; set; }
         [Display(Name = "類別")]
         public int CategoryID { get; set; }
+        [Display(Name = "產品狀態")]
+        public string Status { get; set; }
     }
 }

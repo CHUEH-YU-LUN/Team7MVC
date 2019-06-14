@@ -64,13 +64,25 @@ namespace Team7MVC.Repositories
             return product;
         }
 
+        public Products GetProductById(int id)
+        {
+            Products product;
+
+            using (conn)
+            {
+                string sql = "select * from Products where ProductID = @ProductId";
+                product = conn.QueryFirstOrDefault<Products>(sql, new { ProductId = id });
+            }
+            return product;
+        }
+
         public void CreateProduct(Products product)
         {
             using (conn)
             {
-                string sql = @"insert into Products (ProductName,Origin,Year,Capacity,UnitPrice,Stock,Grade,Variety,Area,Picture,Introduction,CategoryID)
-                                values(@ProductName,@Origin,@Year,@Capacity,@UnitPrice,@Stock,@Grade,@Variety,@Area,@Picture,@Introduction,@CategoryID);";
-                conn.Execute(sql, new { product.ProductName, product.Origin, product.Year, product.Capacity, product.UnitPrice, product.Stock, product.Grade, product.Variety, product.Area, product.Picture, product.Introduction, product.CategoryID });
+                string sql = @"insert into Products (ProductName,Origin,Year,Capacity,UnitPrice,Stock,Grade,Variety,Area,Picture,Introduction,CategoryID,Status)
+                                values(@ProductName,@Origin,@Year,@Capacity,@UnitPrice,@Stock,@Grade,@Variety,@Area,@Picture,@Introduction,@CategoryID,@Status);";
+                conn.Execute(sql, new { product.ProductName, product.Origin, product.Year, product.Capacity, product.UnitPrice, product.Stock, product.Grade, product.Variety, product.Area, product.Picture, product.Introduction, product.CategoryID, product.Status });
             }
         }
 
@@ -90,9 +102,10 @@ namespace Team7MVC.Repositories
                                 Area = @Area,
                                 Picture = @Picture,
                                 Introduction = @Introduction,
-                                CategoryID = @CategoryID
+                                CategoryID = @CategoryID,
+                                Status = @Status
                                 where ProductID = @ProductID";
-                conn.Execute(sql, new { product.ProductName, product.Origin, product.Year, product.Capacity, product.UnitPrice, product.Stock, product.Grade, product.Variety, product.Area, product.Picture, product.Introduction, product.CategoryID, product.ProductID });
+                conn.Execute(sql, new { product.ProductName, product.Origin, product.Year, product.Capacity, product.UnitPrice, product.Stock, product.Grade, product.Variety, product.Area, product.Picture, product.Introduction, product.CategoryID, product.ProductID, product.Status });
             }
         }
 
@@ -108,25 +121,25 @@ namespace Team7MVC.Repositories
         #endregion
 
         #region Order
-        public List<Orders> GetAllOrders()
+        public List<AdminOrdersViewModel> GetAllOrders()
         {
-            List<Orders> orders;
+            List<AdminOrdersViewModel> orders;
             using (conn)
             {
                 string sql = "select * from Orders";
-                orders = conn.Query<Orders>(sql).ToList();
+                orders = conn.Query<AdminOrdersViewModel>(sql).ToList();
             }
 
             return orders;
         }
 
-        public List<Orders> GetAllOrders(string SortBy)
+        public List<AdminOrdersViewModel> GetAllOrders(string SortBy)
         {
-            List<Orders> orders;
+            List<AdminOrdersViewModel> orders;
             using (conn)
             {
                 string sql = $"select * from Orders order by {SortBy}";
-                orders = conn.Query<Orders>(sql).ToList();
+                orders = conn.Query<AdminOrdersViewModel>(sql).ToList();
             }
 
             return orders;
@@ -144,6 +157,20 @@ namespace Team7MVC.Repositories
 
             return order;
         }
+
+        public Orders GetOrderById(int id)
+        {
+            Orders order;
+
+            using (conn)
+            {
+                string sql = "select * from Orders where OrderID = @OrderId";
+                order = conn.QueryFirstOrDefault<Orders>(sql, new { OrderId = id });
+            }
+            return order;
+        }
+
+
 
         public void CreateOrder(Orders order)
         {
@@ -240,6 +267,18 @@ namespace Team7MVC.Repositories
             return customer;
         }
 
+        public AdminCustomersViewModel GetCustomerById(int id)
+        {
+            AdminCustomersViewModel customer;
+
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = "select * from Customers where CustomerID = @CustomerId";
+                customer = conn.QueryFirstOrDefault<AdminCustomersViewModel>(sql, new { CustomerId = id });
+            }
+            return customer;
+        }
+
         public void CreateCustomer(Customers customer)
         {
             using (conn)
@@ -284,13 +323,25 @@ namespace Team7MVC.Repositories
         #endregion
 
         #region Message
-        public List<Messages> GetAllMessages()
+        public List<AdminMessagesViewModel> GetAllMessages()
         {
-            List<Messages> messages;
+            List<AdminMessagesViewModel> messages;
             using (conn)
             {
                 string sql = "select * from Messages";
-                messages = conn.Query<Messages>(sql).ToList();
+                messages = conn.Query<AdminMessagesViewModel>(sql).ToList();
+            }
+
+            return messages;
+        }
+
+        public List<AdminMessagesViewModel> GetAllMessages(string SortBy)
+        {
+            List<AdminMessagesViewModel> messages;
+            using (conn)
+            {
+                string sql = $"select * from Messages order by {SortBy}";
+                messages = conn.Query<AdminMessagesViewModel>(sql).ToList();
             }
 
             return messages;

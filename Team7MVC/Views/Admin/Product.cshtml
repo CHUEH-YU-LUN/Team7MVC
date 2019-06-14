@@ -41,6 +41,9 @@
                 <div class="d-inline tool-right">
                     @*<i class="fas fa-plus"></i>*@
                     @Html.ActionLink("新增商品", "ProductCreate", "", new { @class = "btn btn-success" })
+                    <button onClick="document.location.reload()" class="btn btn-success" type="button">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
                 </div>
             </div>
             <div class="card">
@@ -50,7 +53,7 @@
                         <table class="table table-hover">
                             <thead class="">
                                 <tr>
-                                    <th>
+                                    <th class="text-center">
                                         @Html.DisplayNameFor(model => model.ProductID)
                                     </th>
                                     <th>
@@ -72,19 +75,22 @@
                                         @Html.DisplayNameFor(model => model.Stock)
                                     </th>
                                     @*<th>
-                                            @Html.DisplayNameFor(model => model.Grade)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Variety)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Area)
-                                        </th>*@
-                                    <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Variety)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>*@
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Picture)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.CategoryID)
+                                    </th>*@
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Status)
                                     </th>
                                     <th></th>
                                 </tr>
@@ -92,48 +98,51 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ProductID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ProductName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Origin)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Year)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Capacity)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.UnitPrice)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Stock)
-                                        </td>
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.Grade)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Variety)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Area)
-                                            </td>*@
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Picture)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CategoryID)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("編輯", "ProductEdit", new { id = item.ProductID }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("刪除", "ProductDelete", new { id = item.ProductID }, new { @class = "btn btn-danger" })
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.ProductID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProductName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Origin)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Year)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Capacity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UnitPrice)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Stock)
+                                    </td>
+                                    @*<td>
+            @Html.DisplayFor(modelItem => item.Grade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Variety)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>*@
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.Picture)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CategoryID)
+                                    </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("檢視", "ProductReadOnly", new { id = item.ProductID }, new { @class = "btn btn-primary" })
+                                        @Html.ActionLink("停售", "ProductDelete", new { id = item.ProductID }, new { @class = "btn btn-danger" })
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

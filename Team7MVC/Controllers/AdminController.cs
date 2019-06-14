@@ -57,7 +57,7 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult ProductCreate(string ProductName, string Origin, int Year, int Capacity, decimal UnitPrice, int Stock, string Grade, string Variety, string Area, string Picture, string Introduction, int CategoryId)
+        public ActionResult ProductCreate(string ProductName, string Origin, int Year, int Capacity, decimal UnitPrice, int Stock, string Grade, string Variety, string Area, string Picture, string Introduction, int CategoryId, string Status)
         {
             Products product = new Products()
             {
@@ -72,12 +72,20 @@ namespace Team7MVC.Controllers
                 Area = Area,
                 Picture = Picture,
                 Introduction = Introduction,
-                CategoryID = CategoryId
+                CategoryID = CategoryId,
+                Status= Status
             };
 
             _repo.CreateProduct(product);
 
             return RedirectToAction("Product");
+        }
+
+        [HttpGet]
+        public ActionResult ProductReadOnly(int id)
+        {
+            var productreadonly = _repo.GetProductById(id);
+            return View(productreadonly);
         }
 
         [HttpGet]
@@ -88,7 +96,7 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult ProductEdit(int Id, string ProductName, string Origin, int Year, int Capacity, decimal UnitPrice, int Stock, string Grade, string Variety, string Area, string Picture, string Introduction, int CategoryId)
+        public ActionResult ProductEdit(int Id, string ProductName, string Origin, int Year, int Capacity, decimal UnitPrice, int Stock, string Grade, string Variety, string Area, string Picture, string Introduction, int CategoryId, string Status)
         {
             Products product = new Products()
             {
@@ -104,7 +112,8 @@ namespace Team7MVC.Controllers
                 Area = Area,
                 Picture = Picture,
                 Introduction = Introduction,
-                CategoryID = CategoryId
+                CategoryID = CategoryId,
+                Status= Status
             };
 
             _repo.UpdateProduct(product);
@@ -173,6 +182,49 @@ namespace Team7MVC.Controllers
         }
 
         [HttpGet]
+        public ActionResult OrderReadOnly(int id)
+        {
+            var orderreadonly = _repo.GetOrderById(id);
+            return View(orderreadonly);
+        }
+
+        //[HttpGet]
+        //public ActionResult OrderReadOnly()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult OrderReadOnly(int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate, string ShipPhone, string ShipCity, string BillAddress, string BillName, string BillCity, string BillPhone, string Status)
+        //{
+        //    Orders order = new Orders()
+        //    {
+        //        CustomerID = CustomerID,
+        //        OrderDate = OrderDate,
+        //        RequiredDate = RequiredDate,
+        //        ShippedDate = ShippedDate,
+        //        ShipperID = ShipperID,
+        //        ShipName = ShipName,
+        //        ShipAddress = ShipAddress,
+        //        Freight = Freight,
+        //        PayWay = PayWay,
+        //        PayDate = PayDate,
+        //        ShipPhone = ShipPhone,
+        //        ShipCity = ShipCity,
+        //        BillAddress = BillAddress,
+        //        BillName = BillName,
+        //        BillCity = BillCity,
+        //        BillPhone = BillPhone,
+        //        Status = Status
+        //        //TotalAmount= TotalAmount
+        //    };
+
+        //    _repo.GetOrder(order);
+
+        //    return RedirectToAction("Order");
+        //}
+
+        [HttpGet]
         public ActionResult OrderEdit(int Id)
         {
             var order = _repo.GetOrder(Id);
@@ -180,11 +232,10 @@ namespace Team7MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult OrderEdit(int Id, int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate, string ShipPhone, string ShipCity, string BillAddress, string BillName, string BillCity, string BillPhone, string Status)
+        public ActionResult OrderEdit(int CustomerID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, int ShipperID, string ShipName, string ShipAddress, decimal Freight, string PayWay, DateTime PayDate, string ShipPhone, string ShipCity, string BillAddress, string BillName, string BillCity, string BillPhone, string Status)
         {
             Orders order = new Orders()
             {
-                OrderID = Id,
                 CustomerID = CustomerID,
                 OrderDate = OrderDate,
                 RequiredDate = RequiredDate,
@@ -265,6 +316,13 @@ namespace Team7MVC.Controllers
         }
 
         [HttpGet]
+        public ActionResult CustomerReadOnly(int id)
+        {
+            var customerreadonly = _repo.GetCustomerById(id);
+            return View(customerreadonly);
+        }
+
+        [HttpGet]
         public ActionResult CustomerEdit(int Id)
         {
             var customer = _repo.GetCustomer(Id);
@@ -303,9 +361,18 @@ namespace Team7MVC.Controllers
             return RedirectToAction("Customer");
         }
 
+        [HttpGet]
         public ActionResult Messages()
         {
             var messages = _repo.GetAllMessages();
+
+            return View(messages);
+        }
+
+        [HttpPost]
+        public ActionResult Messages(string SortBy)
+        {
+            var messages = _repo.GetAllMessages(SortBy);
 
             return View(messages);
         }
