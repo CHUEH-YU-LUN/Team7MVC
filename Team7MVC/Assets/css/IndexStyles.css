@@ -186,19 +186,19 @@ a {
 
 /* introduction */
 .introduction .card-1 {
-    background-image: url("../images/img_Index/card01.jpg");
+    background: url("../images/img_Index/card01.jpg") center center no-repeat;
     background-size: cover;
     height: 416px;
 }
 
 .introduction .card-2 {
-    background-image: url("../images/img_Index/card02.png");
+    background: url("../images/img_Index/card02.png") center center no-repeat;
     background-size: cover;
     height: 416px;
 }
 
 .introduction .card-3 {
-    background-image: url("../images/img_Index/card03.jpg");
+    background: url("../images/img_Index/card03.jpg") center center no-repeat;
     background-size: cover;
     height: 416px;
 }
@@ -223,7 +223,7 @@ a {
 
 /* special */
 .special {
-    background-image: url("../images/img_Index/distillery-tour-background.jpg");
+    background: url("../images/img_Index/distillery-tour-background.jpg") center center no-repeat;
     background-size: cover;
     min-height: 37.5rem;
 }
@@ -445,15 +445,15 @@ a {
 
     /* section */
     .section .order3 {
-        height: 274px;
+        height: 236px;
     }
 
     .section .order2 {
-        height: 350px;
+        height: 306px;
     }
 
     .section .order1 {
-        height: 446px;
+        height: 390px;
     }
 
     /* footer */
@@ -525,5 +525,20 @@ a {
 
     .special p:nth-child(3) {
         font-size: .75rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    /* section */
+    .section .order3 {
+        height: 202px;
+    }
+
+    .section .order2 {
+        height: 262px;
+    }
+
+    .section .order1 {
+        height: 334px;
     }
 }
