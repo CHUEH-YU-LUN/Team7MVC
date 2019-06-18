@@ -340,7 +340,7 @@ namespace Team7MVC.Repositories
                         where c.CustomerID = @CustomerID";
 
                 shopLists = conn.Query<ShopLists>(sql, new { CustomerID }).ToList();
-
+                
                 sql = @"insert into [Order Details] (OrderID, ProductID, UnitPrice, Quantity,
                         Discount)
                         values(@OrderID, @ProductID, @Price, @Quantity, 1)";
